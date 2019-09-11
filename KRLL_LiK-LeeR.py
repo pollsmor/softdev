@@ -7,9 +7,10 @@ KREWES = {
 }
 
 def printName(team):
-    print(KREWES[team][random.randint(0, len(KREWES[team]) - 1)])
+    namesLen = len(KREWES[team]) #to keep the print statement from looking too cluttered
+    print(KREWES[team][random.randint(0, namesLen - 1)])
 
-#xddddddddddddd
+#Testing out the function on all three of the keys
 printName('orpheus')
 printName('rex')
 printName('endymion')
