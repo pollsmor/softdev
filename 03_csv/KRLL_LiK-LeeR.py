@@ -1,5 +1,6 @@
 file = open("occupations.csv", "r")
-lines = file.readlines()[1::1]
+lines = file.readlines()[1:]
+lines = lines[:-1]
 occupationsDict = {}
 occupationsArray = []
 
