@@ -1,3 +1,5 @@
+import random
+
 file = open("occupations.csv", "r")
 lines = file.readlines()[1:]
 lines = lines[:-1]
@@ -14,4 +16,8 @@ for line in lines:
 
 file.close()
 
-print(occupationsArray)
+def pickOccupation():
+    index = random.randint(0, len(occupationsArray) - 1)
+    return occupationsArray[index]
+
+print(pickOccupation())
