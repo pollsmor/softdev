@@ -23,4 +23,9 @@ def pickOccupation():
     index = random.randint(0, len(occupationsArray) - 1)
     return occupationsArray[index]
 
-print(pickOccupation())
+#Testing printing out the entire dictionary
+for key in occupationsDict:
+    print(key + " " + str(occupationsDict[key]))
+
+print('\n')
+print("Randomly picked: " + pickOccupation())
