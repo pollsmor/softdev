@@ -1,7 +1,11 @@
 file = open("occupations.csv", "r")
-list = file.readlines()
+lines = file.readlines()[1:]
+occupations = {}
 
-for i in list:
-    print(i)
+for line in lines:
+    parsed = line.split(",")
+    jobClass = parsed[0]
+    percentage = parsed[1]
+    occupations[jobClass] = percentage
 
 file.close()
