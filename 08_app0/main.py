@@ -3,14 +3,14 @@
 #K08 -- Basic Flask app
 #2019-09-18
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     print("What")
-    return "Hello, world!"
+    return render_template('home.html')
 
 @app.route("/test")
 def test():
