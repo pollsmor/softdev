@@ -20,7 +20,10 @@ file.close() #courtesy? idk I just remember being told to do this in intro2 no m
 
 #Randomly chooses an occupation weighted based on percentage
 def pickOccupation():
-    index = random.randint(0, len(occupationsArray) - 1)
+    index = random.randint(0, len(occupationsArray) + 1)
+    if (index == len(occupationsArray) or index == len(occupationsArray) + 1):
+        return "Unemployed"
+
     return occupationsArray[index]
 
 #Testing printing out the entire dictionary
