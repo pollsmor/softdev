@@ -1,24 +1,24 @@
 Job Class,Percentage
-Management,6.1
-Business and Financial operations,5
-Computer and Mathematical,2.7
-Architecture and Engineering,1.7
-"Life, Physical and Social Science",0.9
-Community and Social Service,1.6
-Legal,0.8
-"Education, training and library",6.1
-"Arts, design, entertainment, sports and media",1.7
-Healthcare practioners and technical,5.5
-Healthcare support,2.8
-Protective service,2.3
-Food preparation and serving,8.3
-Building and grounds cleaning and maintenance,3.7
-Personal care and service,4
-Sales,10.2
-Office and administrative support,15.1
-"Farming, fishing and forestry",0.6
-Construction and extraction,4.3
-"Installation, maintenance and repair",3.8
-Production,6.1
-Transportation and material moving,6.5
+Management,6.1,https://www.bls.gov/oes/2017/may/oes110000.htm
+Business and Financial operations,5,https://www.bls.gov/oes/2017/may/oes130000.htm
+Computer and Mathematical,2.7,https://www.bls.gov/oes/2017/may/oes150000.htm
+Architecture and Engineering,1.7,https://www.bls.gov/oes/2017/may/oes170000.htm
+"Life, Physical and Social Science",0.9,https://www.bls.gov/oes/2017/may/oes190000.htm
+Community and Social Service,1.6,https://www.bls.gov/oes/current/oes210000.htm
+Legal,0.8,https://www.bls.gov/oes/2017/may/oes230000.htm
+"Education, training and library",6.1,https://www.bls.gov/oes/2017/may/oes250000.htm
+"Arts, design, entertainment, sports and media",1.7,https://www.bls.gov/oes/current/oes270000.htm
+Healthcare practioners and technical,5.5,https://www.bls.gov/oes/current/oes290000.htm
+Healthcare support,2.8,https://www.bls.gov/oes/current/oes310000.htm
+Protective service,2.3,https://www.bls.gov/oes/current/oes330000.htm
+Food preparation and serving,8.3,https://www.bls.gov/oes/2017/may/oes350000.htm
+Building and grounds cleaning and maintenance,3.7,https://www.bls.gov/oes/current/oes370000.htm
+Personal care and service,4,https://www.bls.gov/oes/2017/may/oes390000.htm
+Sales,10.2,https://www.bls.gov/oes/current/oes410000.htm
+Office and administrative support,15.1,https://www.bls.gov/oes/current/oes430000.htm
+"Farming, fishing and forestry",0.6,https://www.bls.gov/oes/2017/may/oes450000.htm
+Construction and extraction,4.3,https://www.bls.gov/oes/2017/may/oes470000.htm
+"Installation, maintenance and repair",3.8,https://www.bls.gov/oes/2017/may/oes490000.htm
+Production,6.1,https://www.bls.gov/oes/current/oes510000.htm
+Transportation and material moving,6.5,https://www.bls.gov/oes/current/oes530000.htm
 Total,99.8

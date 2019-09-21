@@ -17,8 +17,8 @@
 			</tr>
 			{% for key, value in parent_dict %}
 				<tr>
-					<td> {{ key }} </td>
-					<td> {{ value }} </td>
+					<td> <a href="{{ value[1] }}"> {{ key }} </a> </td>
+					<td> {{ value[0] }} </td>
 				</tr>
 			{% endfor %}
 		</table>

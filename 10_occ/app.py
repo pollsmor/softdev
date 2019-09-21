@@ -15,10 +15,11 @@ occupationsDict = {}
 occupationsArray = []
 
 for line in lines:
-    parsed = line.rsplit(",", 1) #allows me to split from the rightmost comma of a line - avoids issue of an occupation having a comma
+    parsed = line.rsplit(",", 2) #allows me to split from the rightmost comma of a line - avoids issue of an occupation having a comma
     jobClass = parsed[0]
     percentage = float(parsed[1]) #must be stored as a number per instructions
-    occupationsDict[jobClass] = percentage
+    link = parsed[2][:-1]
+    occupationsDict[jobClass] = [percentage, link]
     for i in range(int(percentage * 10)): #Arrays don't take floats as indices and I don't want to chop off the decimal - multiply by 10 to get rid of tenths place
         occupationsArray.append(jobClass)
 
