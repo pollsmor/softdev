@@ -28,7 +28,7 @@ file.close() #courtesy? idk I just remember being told to do this in intro2 no m
 #Randomly chooses an occupation weighted based on percentage
 def pickOccupation():
     index = random.randint(0, len(occupationsArray) + 1)
-    if (index == len(occupationsArray) or index == len(occupationsArray) + 1):
+    if (index == len(occupationsArray) or index == len(occupationsArray) + 1): #if index is 998 or 999 return unemployed
         return "Unemployed"
 
     return occupationsArray[index]
@@ -45,7 +45,7 @@ def home():
 def occupyflaskst():
     occupation = pickOccupation()
     print("Randomly picked: " + occupation) #testing if this gets passed
-    return render_template("/hw.html", occupation=occupation, parent_dict=occupationsDict.items())
+    return render_template("/hw.html", occupation=occupation, parent_dict=occupationsDict.items()) #returns list of dictionary's key-value pairs
 
 if __name__ == "__main__":
     app.debug = True
