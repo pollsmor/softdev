@@ -16,9 +16,9 @@ occupationsArray = []
 
 for line in lines:
     parsed = line.rsplit(",", 2) #allows me to split from the rightmost comma of a line - avoids issue of an occupation having a comma
-    jobClass = parsed[0]
+    jobClass = parsed[0].strip("\"")
     percentage = float(parsed[1]) #must be stored as a number per instructions
-    link = parsed[2][:-1]
+    link = parsed[2][:-1] #idk why but the last character in the URL is a \n character
     occupationsDict[jobClass] = [percentage, link]
     for i in range(int(percentage * 10)): #Arrays don't take floats as indices and I don't want to chop off the decimal - multiply by 10 to get rid of tenths place
         occupationsArray.append(jobClass)
