@@ -16,7 +16,7 @@ for line in lines:
     for i in range(int(percentage * 10)): #Arrays don't take floats as indices and I don't want to chop off the decimal - multiply by 10 to get rid of tenths place
         occupationsArray.append(jobClass)
 
-file.close() #courtesy? idk I just remember being told to do this in intro2 no matter what
+file.close() #courtesy? idk I just remember being told to do this in intro2 no matter what]
 
 #Randomly chooses an occupation weighted based on percentage
 def pickOccupation():
