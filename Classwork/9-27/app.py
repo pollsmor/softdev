@@ -7,13 +7,14 @@ app = Flask(__name__)
 def home():
     return render_template("form.html");
 
+#@app.route("/auth", methods=["POST"])
 @app.route("/auth")
 def auth():
     #print(app)
     #print(request)
     #print(request.args)
     #print(request.args["user"])
-    print(ants.lol())
+    #print(ants.lol())
     username = request.args['user']
     method = request.method
     return render_template("auth.html", username=username, method=method);
