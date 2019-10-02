@@ -1,3 +1,8 @@
+# Team Sleepy: Jesse Hall & Kevin li
+# SoftDev1 pd1
+# K15 -- Do I Know You?
+# 2019-10-02
+
 from flask import Flask, render_template, request, session, url_for
 
 app = Flask(__name__)
@@ -7,20 +12,18 @@ password = "sleepier";
 
 @app.route("/")
 def home():
-    return render_template("form.html");
+    return render_template("root.html");
 
-#@app.route("/auth")
-@app.route("/auth")
+@app.route("/auth", methods=['POST'])
 def auth():
-    if (request.args["user"] == "sleepy"):
-        if (request.args["password"] == "sleepier"):
-            return render_template("success.html", username=username);
+    username = request.form.get("user")
+    password = request.form.get("pw")
 
-        else:
-            return render_template("failed.html", reason="password");
+    if (username == "sleepy" and password == "sleepier"):
+        return render_template("success.html", username=username);
 
     else:
-        return render_template("failed.html", reason="username")
+        return render_template("failed.html", reason="username or password")
 
 if __name__ == "__main__":
     app.debug = True
