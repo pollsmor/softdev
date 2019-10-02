@@ -1,18 +1,14 @@
-from flask import Flask, render_template, request, session
-from utl import ants
-import os
+from flask import Flask, render_template, request, session, redirect
 
 app = Flask(__name__)
-app.secret_key = os.urandom(32)
 
 @app.route("/")
 def home():
     return render_template("form.html");
 
-#@app.route("/auth")
 @app.route("/auth")
 def auth():
-    return render_template("auth.html", username=username, method=method);
+    return render_template("auth.html", username=username);
 
 if __name__ == "__main__":
     app.debug = True
