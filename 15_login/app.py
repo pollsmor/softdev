@@ -12,10 +12,15 @@ def home():
 #@app.route("/auth")
 @app.route("/auth")
 def auth():
-    if (request.args["user"] == "sleepy" and request.args["password"] == "sleepier"):
-        return render_template("success.html", username=username);
+    if (request.args["user"] == "sleepy"):
+        if (request.args["password"] == "sleepier"):
+            return render_template("success.html", username=username);
 
-    return "You failed";
+        else:
+            return render_template("failed.html", reason="password");
+
+    else:
+        return render_template("failed.html", reason="username")
 
 if __name__ == "__main__":
     app.debug = True
