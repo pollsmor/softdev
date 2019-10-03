@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+		<link href="../static/styles/style.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    {% set msgs = get_flashed_messages() %}
+    {% for each in msgs %}
+      {{ each }}
+    {% endfor %}
+    <h3>Team Sleepy - Jesse Hall & Kevin Li</h3>
+    <form action="/auth" method="post"> <!-- POST b/c arguments in the address bar is a bad idea -->
+      Username: <input type="text" name="user">
+      <br>
+      <br>
+      <!-- &nbsp; is a non-breaking space -->
+      Password:&nbsp; <input type="password" name="pw">
+      <br>
+      <br>
+      <input type="submit" values="Submit">
+      <br>
+      <br>
+
+    </form>
+  </body>
+</html>
