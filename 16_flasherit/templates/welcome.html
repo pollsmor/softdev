@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Welcome!</title>
-    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-		<link href="../static/styles/style.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
-    <h3>Team Sleepy - Jesse Hall & Kevin Li</h3>
-    <p>Good day, {{ username }}. You are sucessfully logged in.</p>
-    <!-- Line below goes to the /logout route in app.py -->
-    <a href="../logout"><input type="button" value="Logout"></a>
-  </body>
-</html>
+{% extends "login.html" %}
+
+{% block form %}
+  <p>Welcome. You are currently logged in.</p>
+{% endblock %}

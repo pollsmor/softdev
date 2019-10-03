@@ -10,19 +10,24 @@
     {% for each in msgs %}
       {{ each }}
     {% endfor %}
-    <h3>Team Sleepy - Jesse Hall & Kevin Li</h3>
-    <form action="/auth" method="post"> <!-- POST b/c arguments in the address bar is a bad idea -->
-      Username: <input type="text" name="user">
-      <br>
-      <br>
-      <!-- &nbsp; is a non-breaking space -->
-      Password:&nbsp; <input type="password" name="pw">
-      <br>
-      <br>
-      <input type="submit" values="Submit">
-      <br>
-      <br>
 
+    <h3>Login testing</h3>
+    <h4>Jesse Hall & Kevin Li</h4>
+
+    {% block form %}
+      <form action="/auth" method="post"> <!-- POST b/c arguments in the address bar is a bad idea -->
+        Username: <input type="text" name="user">
+        <br>
+        <br>
+        <!-- &nbsp; is a non-breaking space -->
+        Password:&nbsp; <input type="password" name="pw">
+        <br>
+        <br>
+        <input type="submit" values="Submit">
+        <br>
+        {% endblock %}
+
+      <h4>&copy; Team Sleepy</h6>
     </form>
   </body>
 </html>
