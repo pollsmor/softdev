@@ -1,7 +1,7 @@
 {% extends "login.html" %}
 
 {% block form %}
-  <p>Login failed.</p>
+  <p>Login failed due to incorrect username or password.</p>
   <!-- Line below goes to the /logout route in app.py -->
   <a href="../"><input type="button" value="Try again"></a>
 {% endblock %}
