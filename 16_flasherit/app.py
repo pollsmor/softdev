@@ -7,12 +7,16 @@ from flask import Flask, render_template, request, session, url_for, redirect, f
 import os
 
 app = Flask(__name__)
-with open("secret_key.txt", "wb+") as filez:
-    if(not filez.read()):
-        app.secret_key = os.urandom(32) #need this to store session stuff
-        filez.write(app.secret_key)
-        print('hell')
-print(app.secret_key)
+
+#Secret key handling
+secret_key_file = 'secret_key.txt'
+if (os.path.exists(secret_key_file)):
+    file = open(secret_key_file, 'r')
+    app.secret_key = file.read()
+else: #not adding the secret key file, so generate one on the spot for ppl without it
+    app.secret_key = os.urandom(32)
+
+#print(app.secret_key)
 
 #Hardcoded combination
 username = 'sleepy';
