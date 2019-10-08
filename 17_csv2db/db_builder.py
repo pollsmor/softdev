@@ -1,4 +1,4 @@
-#Kevin Li && Jackie Lin
+#Team Innocent Potatoes - Kevin Li && Jackie Lin
 #SoftDev1 pd1
 #K17 -- SQLite3 Basics
 #2019-10-07
@@ -45,13 +45,13 @@ with open('courses.csv', newline='') as courses:
     for row in courseReader:
         c.execute("INSERT INTO courses VALUES(?, ?, ?)", (row['code'], row['mark'], row['id']))
 
-#command = "" # test SQL stmt in sqlite3 shell, save as string
-#c.execute(command)    # run SQL statement
+command = "" # test SQL stmt in sqlite3 shell, save as string
+c.execute(command)    # run SQL statement
 
 #Printing - requires pandas module
-#print(pandas.read_sql_query("SELECT * from students", db))
-#print('\n')
-#print(pandas.read_sql_query("SELECT * from courses", db))
+print(pandas.read_sql_query("SELECT * from students", db))
+print('\n')
+print(pandas.read_sql_query("SELECT * from courses", db))
 
 #==========================================================
 
