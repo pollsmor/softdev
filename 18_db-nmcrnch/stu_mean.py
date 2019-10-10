@@ -1,7 +1,7 @@
-#Team Innocent Potatoes - Kevin Li && Jackie Lin
+#"Team" Harrison Ford - Kevin Li
 #SoftDev1 pd1
-#K17 -- SQLite3 Basics
-#2019-10-07
+#K18 -- Average
+#2019-10-10
 
 import sqlite3 #enable control of an sqlite database
 import csv #facilitate CSV I/O
