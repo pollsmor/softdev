@@ -21,6 +21,7 @@ c.execute(
     ) """
 )
 
+print(c.execute("select * from students"))
 #Printing - requires pandas module
 #print(pandas.read_sql_query("SELECT * from students", db))
 #print('\n')
