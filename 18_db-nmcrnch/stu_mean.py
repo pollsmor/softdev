@@ -4,16 +4,16 @@
 #2019-10-10
 
 import sqlite3 #enable control of an sqlite database
-#import pandas #for printing the db
 
-db = sqlite3.connect('discobandit.db') #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
+db = sqlite3.connect('discobandit.db')
+c = db.cursor()
 
-#For the table of IDs and associated averages
+#For the stu_avg table
 db2 = sqlite3.connect('averages.db')
 c2 = db2.cursor()
 
 #==========================================================
+#Yeah name is not required but I think it makes things easier when printing out each student's name, id, and average
 c2.execute(
     """ CREATE TABLE stu_avg(
         name TEXT NOT NULL,
@@ -22,6 +22,7 @@ c2.execute(
     ) """
 )
 
+#Loop through every ID
 id = 1
 while (id <= 10):
     c.execute(
@@ -29,24 +30,25 @@ while (id <= 10):
             FROM students, courses
             WHERE students.id = courses.id
             AND students.id = ?
-        """, (id,)
+        """, (id,) #lets me compare the id variable in my py script to the id in the db
     )
 
-    total = 0
+    total = 0 #those two allow for the calculation of averages
     rows = 0
     name = ""
     for row in c:
-        name = row[0]
-        total += row[2]
+        name = row[0] #I'm not aware of a more elegant way to only extract the name once, sooooo...
+        total += row[2] #mark
         rows += 1
 
-    c2.execute("INSERT INTO stu_avg VALUES(?, ?, ?)", name, id, total / rows)
+    c2.execute("INSERT INTO stu_avg VALUES(?, ?, ?)", (name, id, total / rows))
 
     id += 1
 
-#Printing - requires pandas module
-#print(pandas.read_sql_query("SELECT * from students", db))
-#print(pandas.read_sql_query("SELECT * from courses", db))
+
+c2.execute("SELECT * FROM stu_avg")
+for row in c2:
+    print(row)
 
 #==========================================================
 
