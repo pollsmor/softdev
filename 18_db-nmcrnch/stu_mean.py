@@ -23,21 +23,42 @@ c2.execute(
     ) """
 )
 
-#Loop through every ID
+#Loop through every ID (furst sem)
 id = 1
 while id <= 10:
     c.execute(
-        """ SELECT name, students.id, mark
+        """ SELECT name, mark
             FROM students, courses
             WHERE students.id = courses.id
             AND students.id = ?
+            AND sem = 1
         """, (id,)
     )
 
+    name = ""
+    sem1Total = 0
+    sem1Courses = 0
     for row in c:
-        print(row)
+        name = row[0]
+        sem1Total += row[1]
+        sem1Courses += 1
 
-    c2.execute("INSERT INTO stu_avg VALUES(?, ?, ?, ?)", (name, id, total / rows, 0))
+    c.execute(
+        """ SELECT name, mark
+            FROM students, courses
+            WHERE students.id = courses.id
+            AND students.id = ?
+            AND sem = 2
+        """, (id,)
+    )
+
+    sem2Total = 0
+    sem2Courses = 0
+    for row in c:
+        sem2Total += row[1]
+        sem2Courses += 1
+
+    c2.execute("INSERT INTO stu_avg VALUES(?, ?, ?, ?)", (name, id, sem1Total / sem1Courses, sem2Total / sem2Courses))
 
     id += 1
 
