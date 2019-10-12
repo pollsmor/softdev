@@ -62,7 +62,7 @@ while id <= 10:
 
     id += 1
 
-
+print("Name, ID, Semester 1 average, Semester 2 average")
 c2.execute("SELECT * FROM stu_avg")
 for row in c2:
     print(row)
