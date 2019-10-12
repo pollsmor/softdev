@@ -23,9 +23,9 @@ c2.execute(
     ) """
 )
 
-#Loop through every ID (furst sem)
 id = 1
 while id <= 10:
+    #Loop through every ID (first sem)
     c.execute(
         """ SELECT name, mark
             FROM students, courses
@@ -39,10 +39,11 @@ while id <= 10:
     sem1Total = 0
     sem1Courses = 0
     for row in c:
-        name = row[0]
+        name = row[0] #don't know a more elegant way to get the name only once
         sem1Total += row[1]
         sem1Courses += 1
 
+    #Loop through every ID (second sem)
     c.execute(
         """ SELECT name, mark
             FROM students, courses
@@ -62,7 +63,7 @@ while id <= 10:
 
     id += 1
 
-
+print("Name, ID, Semester 1 average, Semester 2 average")
 c2.execute("SELECT * FROM stu_avg")
 for row in c2:
     print(row)
