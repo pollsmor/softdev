@@ -18,30 +18,26 @@ c2.execute(
     """ CREATE TABLE stu_avg(
         name TEXT NOT NULL,
         id INT PRIMARY KEY NOT NULL,
-        average NUM NOT NULL
+        average1 NUM,
+        average2 NUM
     ) """
 )
 
 #Loop through every ID
 id = 1
-while (id <= 10):
+while id <= 10:
     c.execute(
         """ SELECT name, students.id, mark
             FROM students, courses
             WHERE students.id = courses.id
             AND students.id = ?
-        """, (id,) #lets me compare the id variable in my py script to the id in the db
+        """, (id,)
     )
 
-    total = 0 #those two allow for the calculation of averages
-    rows = 0
-    name = ""
     for row in c:
-        name = row[0] #I'm not aware of a more elegant way to only extract the name once, sooooo...
-        total += row[2] #mark
-        rows += 1
+        print(row)
 
-    c2.execute("INSERT INTO stu_avg VALUES(?, ?, ?)", (name, id, total / rows))
+    c2.execute("INSERT INTO stu_avg VALUES(?, ?, ?, ?)", (name, id, total / rows, 0))
 
     id += 1
 
