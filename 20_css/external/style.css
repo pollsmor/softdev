@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #666666;
+}
+
+h1 {
+  padding: 4px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #bdbdbd;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#left {
+  float: left;
+  width: 20%;
+}
+
+#right {
+  float: left;
+  width: 80%;
+}
+
+#footer {
+  padding: 10px;
+  color: #6e716f;
+  background-color: #575757;
+  text-align: right;
+}
