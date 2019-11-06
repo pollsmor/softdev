@@ -2,9 +2,28 @@
 <html>
 <head>
   <title>Foundation Demo</title>
-  <link href="../static/css/foundation.css" type="text/css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css" type="text/css" rel="stylesheet">
+  <link href="../static/fonts.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  The following is a <p class="code">< div class="top-bar" ></p>, containing < div class="top-bar-left" > and < div class="top-bar-right" >, each containing a < ul class="menu" >
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text">< li class="menu-text" > < /li ></li>
+        <li><a href="#">< li > < a >text< /a > < /li></a></li>
+        <li><a href="#">< li > < a >text< /a > < /li></a></li>
+        <li><a href="#">< li > < a >text< /a > < /li></a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><input type="search" placeholder="Search"></li>
+        <li><button type="button" class="button">Search</button></li>
+      </ul>
+    </div>
+  </div>
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
@@ -24,16 +43,17 @@
 
   <br>
 
-  <h3>&nbsp Recent tournaments</h3>
+  <h3>&nbsp These three are cards, placed in a .grid-x.</h3>
   <div class="grid-container">
   <div class="grid-x grid-margin-x">
     <div class="card" style="width: 200px;">
       <div class="card-divider">
-        <h4>BLAST Pro Series: Copenhagen 2019</h4>
+        <h4>.card-divider class: useful for title</h4>
       </div>
+      <p>You can put stuff in between the card divider and section, like this image here.</p>
       <img src="../static/img/BPSCop2019.jpg">
       <div class="card-section">
-        <h5>Copenhagen, Denmark</h5>
+        <h5>This is a .card-section.</h5>
         <p>Winner: FaZe Clan (EU)</p>
         <p>Runner-up: Ninjas in Pyjamas (Sweden)</p>
       </div>
@@ -66,15 +86,20 @@
   <br>
 
   <h3>&nbsp All Valve-sponsored Major tournaments</h3>
+  <ul>
+    <li><p>Tables work exactly the same as in HTML. The "thead" tag bolds the text and serves as
+       the "head" of the table.</p></li>
+
+  </ul>
   <table class="hover">
     <thead>
       <tr>
-        <th>Major</th>
+        <th>Each column header is inside a separate "th" tag within the "thead" tag <br> Major</th>
         <th>Location</th>
         <th>Prize Pool</th>
         <th>Winning team</th>
       </tr>
-    </head>
+    </thead>
     <tbody>
       <tr>
         <td>Starladder Major: Berlin 2019</th>
