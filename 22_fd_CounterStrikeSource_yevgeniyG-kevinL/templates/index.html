@@ -3,27 +3,19 @@
 <head>
   <title>Foundation Demo</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css" type="text/css" rel="stylesheet">
-  <link href="../static/fonts.css" type="text/css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link href="../static/fonts.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-  The following is a <p class="code">< div class="top-bar" ></p>, containing < div class="top-bar-left" > and < div class="top-bar-right" >, each containing a < ul class="menu" >
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="menu">
-        <li class="menu-text">< li class="menu-text" > < /li ></li>
-        <li><a href="#">< li > < a >text< /a > < /li></a></li>
-        <li><a href="#">< li > < a >text< /a > < /li></a></li>
-        <li><a href="#">< li > < a >text< /a > < /li></a></li>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li><input type="search" placeholder="Search"></li>
-        <li><button type="button" class="button">Search</button></li>
-      </ul>
-    </div>
-  </div>
+  <h4>To use Foundation, you want to assign classes to individual HTML elements. For example, a ul can be made to work like a menu like this: <span class="code">< ul class="menu" ></span></h4>
+  <h3>Top Bar</h3>
+  <ul>
+    <li>The following is a <span class="code">< div class="top-bar" ></span>, containing a <span class="code">< div class="top-bar-left" ></span> and <span class="code">< div class="top-bar-right" ></span>.</li>
+    <li>Quite predictably, the elements inside the left top bar start from the left, and vice versa for the right.</li>
+    <li>Both the left and right top bars contain a <span class="code">< ul class="menu" ></span>. This is necessary because a normal ul goes from top to bottom. This makes the li elements go horizontally.</li>
+    <li>Left: the first li is a <span class="code">< li class="menu-text" ></span>, which distinguishes it from the rest.</li>
+    <li>Right: you can see a <span class="code">< button class="button" ></span>, which is a style of button defined in Foundation.</li>
+  </ul>
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
@@ -41,19 +33,25 @@
     </div>
   </div>
 
-  <br>
+  <hr>
 
-  <h3>&nbsp These three are cards, placed in a .grid-x.</h3>
+  <h3>&nbsp Cards</h3>
+  <ul>
+    <li>The following is a <span class="code">< grid-container ></span> of <span class="code">< div class="card" ></span>.</li>
+    <li>The <span class="code">"grid-x"</span> class lays the cards out horizontally.</li>
+    <li>Inside a card can be a <span class="code">< div class="card-divider" ></span>, which serves well as a header.</li>
+    <li>Below the card divider is just an <span class="code">img</span> element linking to the image.</li>
+    <li>Below the image is a <span class="code">< div class="card-section" ></span>, which is visibly different from the card divider. You can put descriptive text in here.</li>
+  </ul>
   <div class="grid-container">
   <div class="grid-x grid-margin-x">
     <div class="card" style="width: 200px;">
       <div class="card-divider">
-        <h4>.card-divider class: useful for title</h4>
+        <h4>BlAST Pro Series: Copenhagen 2019</h4>
       </div>
-      <p>You can put stuff in between the card divider and section, like this image here.</p>
       <img src="../static/img/BPSCop2019.jpg">
       <div class="card-section">
-        <h5>This is a .card-section.</h5>
+        <h5>Copenhagen, Denmark</h5>
         <p>Winner: FaZe Clan (EU)</p>
         <p>Runner-up: Ninjas in Pyjamas (Sweden)</p>
       </div>
@@ -83,18 +81,19 @@
   </div>
   </div>
 
-  <br>
+  <hr>
 
-  <h3>&nbsp All Valve-sponsored Major tournaments</h3>
+  <h3>&nbsp Tables</h3>
   <ul>
-    <li><p>Tables work exactly the same as in HTML. The "thead" tag bolds the text and serves as
-       the "head" of the table.</p></li>
-
+    <li>Tables work exactly the same as in HTML. The <span class="code">< thead ></span> tag bolds the text and serves as
+       the "head" of the table.</li>
+    <li>The table is of <span class="code">class="hover"</span>, which means that the row you are hovering over highlights.</li>
+    <li>By default, Foundation tables are striped for contrast. This can be modified by changing the class of the table.</li>
   </ul>
   <table class="hover">
     <thead>
       <tr>
-        <th>Each column header is inside a separate "th" tag within the "thead" tag <br> Major</th>
+        <th>Major</th>
         <th>Location</th>
         <th>Prize Pool</th>
         <th>Winning team</th>
