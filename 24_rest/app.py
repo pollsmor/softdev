@@ -1,3 +1,7 @@
+#Team Counter-Strike: Source | Kevin Li & Yevgeniy Gorbachev
+#SoftDev1 pd1
+#K24 -- GET Some REST
+#2019-11-12
 
 from flask import Flask, render_template
 import urllib.request
@@ -5,8 +9,8 @@ import json
 
 app = Flask(__name__);
 
-__key__ = "5Vrh42prZ7Y2kxrO0KAH6fQ0CqpN5tDujnmZk8sF";
 __url__ = "https://api.nasa.gov/planetary/apod?api_key="
+__key__ = "5Vrh42prZ7Y2kxrO0KAH6fQ0CqpN5tDujnmZk8sF";
 
 @app.route("/")
 def home():
