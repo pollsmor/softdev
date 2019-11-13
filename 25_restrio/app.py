@@ -29,6 +29,13 @@ def rick():
 
     return render_template("rick.html", avatar=data['image'], name=data['name'])
 
+@app.route("/met")
+def met():
+    url = urllib.request.urlopen("https://collectionapi.metmuseum.org/public/collection/v1/objects/208218")
+    response = url.read()
+    data = json.loads(response)
+
+    return render_template("met.html", image=data['primaryImage'], name=data['objectName'])
 
 if __name__ == "__main__":
     app.debug = True
