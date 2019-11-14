@@ -1,4 +1,4 @@
-#Team {{ }} | Kevin Li & Eric Lau
+#Team Full RESTore | Kevin Li & Eric Lau
 #SoftDev1 pd1
 #K25 -- GET more REST
 #2019-11-14
@@ -19,7 +19,7 @@ def countries():
     response = url.read()
     data = json.loads(response)
 
-    return render_template("countries.html", flag=data[0]['flag'], name=data[0]['name'])
+    return render_template("countries.html", flag=data[0]['flag'], name=data[0]['name'], demonym=data[0]['demonym'])
 
 @app.route("/rick")
 def rick():
@@ -27,7 +27,7 @@ def rick():
     response = url.read()
     data = json.loads(response)
 
-    return render_template("rick.html", avatar=data['image'], name=data['name'])
+    return render_template("rick.html", avatar=data['image'], name=data['name'], species=data['species'], gender=data['gender'])
 
 @app.route("/met")
 def met():
@@ -35,7 +35,7 @@ def met():
     response = url.read()
     data = json.loads(response)
 
-    return render_template("met.html", image=data['primaryImage'], name=data['objectName'])
+    return render_template("met.html", image=data['primaryImage'], name=data['title'], department=data['department'])
 
 if __name__ == "__main__":
     app.debug = True
