@@ -1,7 +1,7 @@
 //Kevin Li
 //SoftDev1 pd1
-//K27 -- Sequential Progression
-//2019-12-10
+//K28 -- Interactive JS
+//2019-12-11
 
 var factorial = function(n) {
   if (n < 2)
@@ -61,5 +61,17 @@ factorialDOM.addEventListener('click', function() {
   console.log(num);
 });
 
-//var factorialDOM = document.getElementById('randomStudent');
-//factorialDOM.addEventListener('click', randomStudent);
+var fibonacciDOM = document.getElementById('fibonacci');
+fibonacciDOM.addEventListener('click', function() {
+  var num = fibonacci(6);
+  console.log(num);
+});
+
+var gcdDOM = document.getElementById('gcd');
+gcdDOM.addEventListener('click', function() {
+  var num = gcd(12, 28);
+  console.log(num);
+});
+
+var randomStudentDOM = document.getElementById('randomStudent');
+randomStudentDOM.addEventListener('click', randomStudent);
