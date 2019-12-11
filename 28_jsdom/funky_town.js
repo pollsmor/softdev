@@ -1,4 +1,4 @@
-//Kevin Li
+//Kevin Li & Tanzim Elahi
 //SoftDev1 pd1
 //K28 -- Interactive JS
 //2019-12-11
@@ -50,28 +50,36 @@ var list = ["Kevin", "Yevgeniy", "Jesse", "Pratham"]; //for testing randomStuden
 
 var randomStudent = function() {
   var idx = Math.floor(Math.random() * list.length); //random: 0 to 1, floor: nearest int rounded down
-  console.log(list[idx]);
   return list[idx];
 }
 
 //==================================================
+var output = document.getElementById('output'); //show stuff on screen
+
 var factorialDOM = document.getElementById('factorial');
 factorialDOM.addEventListener('click', function() {
   var num = factorial(5);
   console.log(num);
+  output.innerHTML = '<h3>' + num + '</h3>';
 });
 
 var fibonacciDOM = document.getElementById('fibonacci');
 fibonacciDOM.addEventListener('click', function() {
   var num = fibonacci(6);
   console.log(num);
+  output.innerHTML = '<h3>' + num + '</h3>';
 });
 
 var gcdDOM = document.getElementById('gcd');
 gcdDOM.addEventListener('click', function() {
   var num = gcd(12, 28);
   console.log(num);
+  output.innerHTML = '<h3>' + num + '</h3>';
 });
 
 var randomStudentDOM = document.getElementById('randomStudent');
-randomStudentDOM.addEventListener('click', randomStudent);
+randomStudentDOM.addEventListener('click', function() {
+  var student = randomStudent();
+  console.log(student);
+  output.innerHTML = '<h3>' + student + '</h3>';
+});
