@@ -50,5 +50,16 @@ var list = ["Kevin", "Yevgeniy", "Jesse", "Pratham"]; //for testing randomStuden
 
 var randomStudent = function() {
   var idx = Math.floor(Math.random() * list.length); //random: 0 to 1, floor: nearest int rounded down
+  console.log(list[idx]);
   return list[idx];
 }
+
+//==================================================
+var factorialDOM = document.getElementById('factorial');
+factorialDOM.addEventListener('click', function() {
+  var num = factorial(5);
+  console.log(num);
+});
+
+//var factorialDOM = document.getElementById('randomStudent');
+//factorialDOM.addEventListener('click', randomStudent);
