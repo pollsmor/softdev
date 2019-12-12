@@ -3,19 +3,24 @@
 //K29 -- Phase III: jsdom
 //2019-12-12
 
-var changeHeading = function(e) {
+var changeHeading = function(e, str) {
+  console.log(e);
   var h = document.getElementById("h");
-  //h.innerHTML = ???
+  h.innerHTML = "<h1 id=\"h\" class=\"blue\">" + str + "</h1>";
 };
 
+/*
 var removeItem = function(e) {
   ???
 };
+*/
 
 var lis = document.getElementsByTagName("li");
 
 for (var i = 0; i < lis.length; i++) {
-  //lis[i].addEventListener('mouseover', ???);
+  lis[i].addEventListener('mouseover', function(e) {
+    changeHeading(e, lis[i]);
+  });
   //lis[i].addEventListener('mopuseout', ???);
   //lis[i].addEventListener('click', ???);
 }
@@ -32,6 +37,7 @@ var addItem = function(e) {
 };
 */
 
+/*
 var button = document.getElementById("b");
 button.addEventListener('click', addItem);
 
@@ -39,6 +45,7 @@ var fib = function(n) {
   if (n < 2) return 1;
   return fib(n - 1) + fib(n - 2);
 };
+*/
 
 /*
 var addFib = function(e) {
