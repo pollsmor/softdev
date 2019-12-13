@@ -26,19 +26,16 @@ for (var i = 0; i < lis.length; i++) {
   lis[i].addEventListener('click', removeItem);
 }
 
-/*
 var addItem = function(e) {
-  var list = ???
+  //var list = lis;
   var item = document.createElement("li");
-  ??? = "WORD";
-  ???
-  ...
-  ???
-  list.???(item);
+  item.innerHTML = "WORD";
+  //list.push(item);
+  lis.push(item);
+  (if e.type === 'click')
+  
 };
-*/
 
-/*
 var button = document.getElementById("b");
 button.addEventListener('click', addItem);
 
