@@ -3,10 +3,14 @@
 //K29 -- Phase III: jsdom
 //2019-12-12
 
-var changeHeading = function(e, str) {
-  console.log(e);
+var changeHeading = function(e) {
+  //console.log(e);
   var h = document.getElementById("h");
-  h.innerHTML = "<h1 id=\"h\" class=\"blue\">" + str + "</h1>";
+  if (e.type === 'mouseover')
+    h.innerHTML = e.target.innerHTML;
+  else {
+    h.innerHTML = "Hello World!";
+  }
 };
 
 /*
@@ -16,13 +20,11 @@ var removeItem = function(e) {
 */
 
 var lis = document.getElementsByTagName("li");
-
 for (var i = 0; i < lis.length; i++) {
-  lis[i].addEventListener('mouseover', function(e) {
-    changeHeading(e, lis[i]);
-  });
-  //lis[i].addEventListener('mopuseout', ???);
-  //lis[i].addEventListener('click', ???);
+  lis[i].addEventListener('mouseover', changeHeading);
+
+  lis[i].addEventListener('mouseout', changeHeading);
+  lis[i].addEventListener('click', changeHeading);
 }
 
 /*
