@@ -43,14 +43,14 @@ var fib = function(n) {
   return fib(n - 1) + fib(n - 2);
 };
 
-/*
 var addFib = function(e) {
-  console.log(e);
-  ???
-  ...
-  ???
+  if (e.type === 'click') {
+    var list = document.getElementById("fiblist");
+    var item = document.createElement("li");
+    item.innerHTML = fib(5).toString();
+    list.appendChild(item);
+  }
 };
-*/
 
 /*
 var addFib2 = function(e) {
@@ -59,7 +59,7 @@ var addFib2 = function(e) {
   ...see QAF re: DYNAMIC PROGRAMMING...
   ???
 };
+*/
 
 var fb = document.getElementById("fb");
 fb.addEventListener('click', addFib);
-*/
