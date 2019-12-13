@@ -8,23 +8,22 @@ var changeHeading = function(e) {
   var h = document.getElementById("h");
   if (e.type === 'mouseover')
     h.innerHTML = e.target.innerHTML;
-  else {
+
+  else if (e.type === 'mouseout')
     h.innerHTML = "Hello World!";
-  }
 };
 
-/*
 var removeItem = function(e) {
-  ???
+  if (e.type === 'click')
+    e.target.remove();
 };
-*/
 
 var lis = document.getElementsByTagName("li");
 for (var i = 0; i < lis.length; i++) {
   lis[i].addEventListener('mouseover', changeHeading);
 
   lis[i].addEventListener('mouseout', changeHeading);
-  lis[i].addEventListener('click', changeHeading);
+  lis[i].addEventListener('click', removeItem);
 }
 
 /*
