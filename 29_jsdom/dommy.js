@@ -27,13 +27,12 @@ for (var i = 0; i < lis.length; i++) {
 }
 
 var addItem = function(e) {
-  //var list = lis;
-  var item = document.createElement("li");
-  item.innerHTML = "WORD";
-  //list.push(item);
-  lis.push(item);
-  (if e.type === 'click')
-  
+  if (e.type === 'click') {
+    var list = document.getElementById("thelist");
+    var item = document.createElement("li");
+    item.innerHTML = "WORD";
+    list.appendChild(item);
+  }
 };
 
 var button = document.getElementById("b");
@@ -43,7 +42,6 @@ var fib = function(n) {
   if (n < 2) return 1;
   return fib(n - 1) + fib(n - 2);
 };
-*/
 
 /*
 var addFib = function(e) {
