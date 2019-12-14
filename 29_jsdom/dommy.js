@@ -7,7 +7,7 @@ var changeHeading = function(e) {
   //console.log(e);
   var h = document.getElementById("h");
   if (e.type === 'mouseover')
-    h.innerHTML = e.target.innerHTML;
+    h.innerHTML = this.innerHTML;
 
   else if (e.type === 'mouseout')
     h.innerHTML = "Hello World!";
@@ -15,7 +15,7 @@ var changeHeading = function(e) {
 
 var removeItem = function(e) {
   if (e.type === 'click')
-    e.target.remove();
+    this.remove();
 };
 
 var lis = document.getElementsByTagName("li");
@@ -43,12 +43,14 @@ var fib = function(n) {
   return fib(n - 1) + fib(n - 2);
 };
 
+var fibInput = 0;
 var addFib = function(e) {
   if (e.type === 'click') {
     var list = document.getElementById("fiblist");
     var item = document.createElement("li");
-    item.innerHTML = fib(5).toString();
+    item.innerHTML = fib(fibInput++).toString();
     list.appendChild(item);
+
   }
 };
 
