@@ -7,7 +7,7 @@ var changeHeading = function(e) {
   //console.log(e);
   var h = document.getElementById("h");
   if (e.type === 'mouseover')
-    h.innerHTML = this.innerHTML;
+    h.innerHTML = this.innerHTML; //this, referring to the DOM object, rather than e.target
 
   else if (e.type === 'mouseout')
     h.innerHTML = "Hello World!";
@@ -21,7 +21,6 @@ var removeItem = function(e) {
 var lis = document.getElementsByTagName("li");
 for (var i = 0; i < lis.length; i++) {
   lis[i].addEventListener('mouseover', changeHeading);
-
   lis[i].addEventListener('mouseout', changeHeading);
   lis[i].addEventListener('click', removeItem);
 }
@@ -29,7 +28,7 @@ for (var i = 0; i < lis.length; i++) {
 var addItem = function(e) {
   if (e.type === 'click') {
     var list = document.getElementById("thelist");
-    var item = document.createElement("li");
+    var item = document.createElement("li"); //is a DOM object; has all the attributes and methods of one
     item.innerHTML = "WORD";
     item.addEventListener('mouseover', changeHeading);
     item.addEventListener('mouseout', changeHeading);
@@ -42,25 +41,25 @@ var button = document.getElementById("b");
 button.addEventListener('click', addItem);
 
 var fib = function(n) {
-  if (n === 0) return 0;
+  if (n === 0) return 0; //I believe the fib(0) is supposed to return 0?
   if (n < 2) return 1;
   return fib(n - 1) + fib(n - 2);
 };
 
-var fibInput = 0;
+var fibInput = 0; //keep track of this for the fib button
 var addFib = function(e) {
   if (e.type === 'click') {
     var list = document.getElementById("fiblist");
     var item = document.createElement("li");
-    item.innerHTML = fib(fibInput++).toString();
+    item.innerHTML = fib(fibInput++).toString(); //run fib with fibinput, *then* increment; also toString is required to convert from int to str
     list.appendChild(item);
-
   }
 };
 
 var fb = document.getElementById("fb");
 fb.addEventListener('click', addFib);
 
+//More efficient way of doing fib: remember the previous values!
 var fib2 = function(n) {
   var fibs = [0, 1];
 
@@ -88,6 +87,8 @@ var addFib2 = function(e) {
 
 var fb2 = document.getElementById("fb2");
 fb2.addEventListener('click', addFib2);
+
+//============EXTRA=============
 
 var fact = function(n) {
   if (n < 2)
