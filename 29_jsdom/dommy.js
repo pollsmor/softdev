@@ -65,3 +65,24 @@ var addFib2 = function(e) {
 
 var fb = document.getElementById("fb");
 fb.addEventListener('click', addFib);
+
+var fact = function(n) {
+  if (n < 2)
+		return 1;
+
+	return n * fact(n - 1);
+};
+
+var factInput = 1;
+var addFact = function(e) {
+  if (e.type === 'click') {
+    var list = document.getElementById("factlist");
+    var item = document.createElement("li");
+    item.innerHTML = fact(factInput++).toString();
+    list.appendChild(item);
+
+  }
+};
+
+var factb = document.getElementById("factb");
+factb.addEventListener('click', addFact);
