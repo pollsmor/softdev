@@ -1,3 +1,8 @@
+//Kevin Li & Alexander Thompson
+//SoftDev2 pd2
+//K04 -- Canvas Basics
+//2020-02-05
+
 var canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 var mode = "box";
