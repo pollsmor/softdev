@@ -22,5 +22,20 @@ var clearCanvas = function(e) {
   console.log("The canvas has been cleared.");
 }
 
+var draw = function(e) {
+  var x = e.clientX;
+  var y = e.clientY;
+  console.log("x: " + x + " y: " + y);
+
+  if (mode === "box") {
+    ctx.fillStyle = "#640cfc"; //violet
+    ctx.fillRect(x - 7, y - 7, 20, 20); //for some reason the x and y are offset
+  } else {
+    ctx.fillStyle = "#07a6f9"; //cerulean
+    ctx.fillRect(x - 8, y - 8, 3, 3);
+  }
+}
+
 clear.addEventListener("click", clearCanvas);
 toggle.addEventListener("click", changeMode);
+canvas.addEventListener("click", draw);
