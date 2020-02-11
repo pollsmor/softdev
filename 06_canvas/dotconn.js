@@ -12,7 +12,7 @@ var drawnOn = 0; //var to keep track of whether to start a new path or cotninue 
 
 var clearCanvas = function(e) {
   drawnOn = 0;
-  ctx.clearRect(0, 0, 300, 150);
+  ctx.clearRect(0, 0, 600, 600);
   console.log("The canvas has been cleared.");
 }
 
@@ -21,17 +21,17 @@ var draw = function(e) {
   var y = e.offsetY;
   console.log("x: " + x + " y: " + y);
 
-  if (!drawnOn) {
+  if (!drawnOn) { //start a new path
     drawnOn = 1;
     ctx.beginPath();
     ctx.strokeStyle = "green";
     ctx.moveTo(x, y);
-    ctx.arc(x, y, 2, 0, 2 * Math.PI);
-    ctx.stroke();
-  } else {
+    ctx.arc(x, y, 2, 0, 2 * Math.PI); //put a dot
+    ctx.stroke(); //draw the line
+  } else { //continue previous path
     ctx.lineTo(x, y);
     ctx.arc(x, y, 2, 0, 2 * Math.PI);
-    ctx.stroke(); //draw it
+    ctx.stroke();
   }
 }
 
