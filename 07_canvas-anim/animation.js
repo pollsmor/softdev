@@ -17,7 +17,7 @@ var animationRunning = false; //to know whether clicking the animate button shou
 
 var animate = function() {
   animationID = requestAnimationFrame(animate);
-  console.log("currRadius: " + currRadius);
+  //console.log("currRadius: " + currRadius); //lags the console if it's open
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (incRadius) {
