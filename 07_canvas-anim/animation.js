@@ -5,46 +5,44 @@
 
 var animateButton = document.getElementById('animate');
 var stopButton = document.getElementById('stop');
-
 var canvas = document.getElementById('playground');
 const ctx = canvas.getContext('2d');
-var width = canvas.width;
-var height = canvas.height;
-var centerX = width / 2;
-var centerY = height / 2;
+
 var maxRadius = 250;
 var currRadius = 0;
-var incRadius = 1;
+var incRadius = true;
 
-//ctx.arc(centerX, centerY, 10, 0, 2 * Math.PI);
-//ctx.stroke();
-
-var animationID;
+var animationID = 0;
+var animationRunning = false; //to know whether clicking the animate button should do anything
 
 var animate = function() {
   animationID = requestAnimationFrame(animate);
   console.log("currRadius: " + currRadius);
-  ctx.clearRect(0, 0, width, height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (incRadius) {
     currRadius++;
     if (currRadius > maxRadius)
-      incRadius = 0;
+      incRadius = false;
   } else {
     currRadius--;
     if (currRadius < 1)
-      incRadius = 1;
+      incRadius = true;
   }
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, currRadius, 0, 2 * Math.PI);
+  ctx.arc(canvas.width / 2, canvas.height / 2, currRadius, 0, 2 * Math.PI);
   ctx.fill();
 }
 
 animateButton.addEventListener("click", function(e) {
-  requestAnimationFrame(animate);
+  if (!animationRunning) {
+    animationRunning = true;
+    requestAnimationFrame(animate);
+  }
 });
 
 stopButton.addEventListener("click", function(e) {
+  animationRunning = false;
   cancelAnimationFrame(animationID);
 })
