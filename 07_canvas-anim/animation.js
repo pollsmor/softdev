@@ -3,7 +3,7 @@
 //K07 -- Canvas Animation
 //2020-02-12
 
-var animate = document.getElementById('animate');
+var animateButton = document.getElementById('animate');
 var stop = document.getElementById('stop');
 
 var canvas = document.getElementById('playground');
@@ -25,6 +25,7 @@ var animate = function(e) {
   ctx.clearRect(0, 0, width, height);
 }
 
-animate.addEventListener("click", function(e) {
+animateButton.addEventListener("click", function(e) {
   animationID = window.requestAnimationFrame(animate);
+  
 });
