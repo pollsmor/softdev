@@ -21,11 +21,13 @@ var currRadius = 0;
 var animationID = 0;
 
 var animate = function(e) {
+  animationID = requestAnimationFrame(animate);
+  console.log("aaaaa");
   ctx.arc(centerX, centerY, currRadius, 0, 2 * Math.PI);
+  ctx.stroke();
   ctx.clearRect(0, 0, width, height);
 }
 
 animateButton.addEventListener("click", function(e) {
-  animationID = window.requestAnimationFrame(animate);
-  
+  requestAnimationFrame(animate);
 });
