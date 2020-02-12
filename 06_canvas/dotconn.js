@@ -26,12 +26,14 @@ var draw = function(e) {
     ctx.beginPath();
     ctx.strokeStyle = "green";
     ctx.moveTo(x, y);
-    ctx.arc(x, y, 2, 0, 2 * Math.PI); //put a dot
+    ctx.arc(e.offsetX, e.offsetY, 2, 0, 2 * Math.PI); //put a dot
     ctx.stroke(); //draw the line
+    ctx.moveTo(x, y);
   } else { //continue previous path
     ctx.lineTo(x, y);
-    ctx.arc(x, y, 2, 0, 2 * Math.PI);
+    ctx.arc(e.offsetX, e.offsetY, 2, 0, 2 * Math.PI);
     ctx.stroke();
+    ctx.moveTo(x, y);
   }
 }
 
