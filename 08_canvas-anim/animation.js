@@ -15,7 +15,7 @@ var dvdRunning = false;
 
 var expandAnimationID;
 var expandWasLastAnimation; //e.g. if I stop the expand animation and restart it I don't want the radius of the circle to reset to 0
-var maxRadius = canvas.width / 2 - 10;
+var maxRadius = Math.min(canvas.width / 2 - 10, canvas.height / 2 - 10); //smaller of two dimensions
 var currRadius = 0;
 var incRadius = true;
 
