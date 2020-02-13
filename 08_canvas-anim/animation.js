@@ -11,10 +11,10 @@ var stopButton = document.getElementById('stop');
 var expandRunning = false;
 var dvdRunning = false;
 
-//----------------------------------------------------------
+//Expand stuff----------------------------------------------------------
 
 var expandAnimationID;
-var expandWasLastAnimation;
+var expandWasLastAnimation; //e.g. if I stop the expand animation and restart it I don't want the radius of the circle to reset to 0
 var maxRadius = canvas.width / 2 - 10;
 var currRadius = 0;
 var incRadius = true;
@@ -40,11 +40,11 @@ var expand = function() {
   ctx.fill();
 }
 
-//----------------------------------------------------------
+//DVD stuff----------------------------------------------------------
 
 var logo = new Image();
 logo.src = "logo_dvd.jpg";
-var imgWidth;
+var imgWidth; //use provided image dimensions rather than magic numbers
 var imgHeight;
 logo.onload = function() {
 	imgWidth = this.width;
@@ -54,17 +54,17 @@ logo.onload = function() {
 var dvdAnimationID;
 var dvdX;
 var dvdY;
-var directions = [-1, 1];
+var directions = [-1, 1]; //pick one of the two for directionX and directionY: -1 for left and up, 1 for right and down.
 var directionX;
 var directionY;
 
 var dvdBounce = function() {
 	cancelAnimationFrame(dvdAnimationID);
 	dvdAnimationID = requestAnimationFrame(dvdBounce);
-	if (!dvdRunning) {
-		dvdX = Math.floor(Math.random() * canvas.width);
+	if (!dvdRunning) { //only want this to run once per button click, not subsequent calls
+		dvdX = Math.floor(Math.random() * canvas.width); //note: top left corner of image, not center
 		dvdY = Math.floor(Math.random() * canvas.height);
-		if (dvdX > canvas.width - imgWidth * 0.25) dvdX -= imgWidth * 0.25;
+		if (dvdX > canvas.width - imgWidth * 0.25) dvdX -= imgWidth * 0.25; //aforementioned top left positioning issue remedy
 		if (dvdY > canvas.height - imgHeight * 0.25) dvdY -= imgHeight * 0.25;
 		directionX = directions[Math.floor(Math.random() * 2)]; //choose to go left or right
 		directionY = directions[Math.floor(Math.random() * 2)]; //choose to go up or down
@@ -73,10 +73,10 @@ var dvdBounce = function() {
 	dvdRunning = true;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	dvdX += directionX; //horizontal movement
+	dvdX += directionX; //horizontal movement; is -1 or 1
 	dvdY += directionY; //vertical movement
 
-	if (dvdX <= 0 || dvdX >= canvas.width - (imgWidth * 0.25)) directionX *= -1;
+	if (dvdX <= 0 || dvdX >= canvas.width - (imgWidth * 0.25)) directionX *= -1; //reverse direction upon reaching a corner
 	if (dvdY <= 0 || dvdY >= canvas.height - (imgHeight * 0.25)) directionY *= -1;
 
 	/* circle testing before DVD
@@ -84,7 +84,7 @@ var dvdBounce = function() {
 	ctx.arc(dvdX, dvdY, 5, 0, 2 * Math.PI);
 	ctx.fill();
 	*/
-	ctx.drawImage(logo, dvdX, dvdY, imgWidth * 0.25, imgHeight * 0.25);
+	ctx.drawImage(logo, dvdX, dvdY, imgWidth * 0.25, imgHeight * 0.25); //the original image is way too big. Also too lazy to do aspect ratio math
 }
 
 expandButton.addEventListener("click", function(e) {
@@ -97,7 +97,7 @@ expandButton.addEventListener("click", function(e) {
 });
 
 dvdButton.addEventListener("click", function(e) {
-	dvdRunning = false; //need this for the conditional in dvdBounce
+	dvdRunning = false; //need this so conditional in dvdBounce knows whether to choose new position for DVD
 	expandRunning = false;
 	expandWasLastAnimation = false;
 	requestAnimationFrame(dvdBounce);
