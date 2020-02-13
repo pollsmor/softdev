@@ -44,21 +44,28 @@ var expand = function() {
 var dvdAnimationID;
 var dvdX;
 var dvdY;
-var direction = Math.floor(Math.random(2 * Math.PI)); //360 degrees of movement
+var directionX;
+var directionY;
 
 var dvdBounce = function() {
 	cancelAnimationFrame(dvdAnimationID);
 	dvdAnimationID = requestAnimationFrame(dvdBounce);
 	if (!dvdRunning) {
-		dvdX = Math.floor(Math.random(canvas.width - 30));
-		dvdY = Math.floor(Math.random(canvas.height - 30));
+		dvdX = Math.floor(Math.random() * canvas.width);
+		dvdY = Math.floor(Math.random() * canvas.height);
+		directionX = Math.floor(Math.random() * 2); //choose to go left or right
+		directionY = Math.floor(Math.random() * 2); //choose to go up or down
+		console.log(directionX);
+		console.log(directionY);
 	}
 
 	dvdRunning = true;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	dvdX += Math.sin(direction);
-	dvdY += Math.sin(direction);
+	if (directionX == 0) dvdX -= 1; //left
+	else dvdX += 1; //right
+	if (directionY == 0) dvdY += 1; //down
+	else dvdY -= 1; //up
 
 	ctx.beginPath();
 	ctx.arc(dvdX, dvdY, 5, 0, 2 * Math.PI);
@@ -68,12 +75,14 @@ var dvdBounce = function() {
 expandButton.addEventListener("click", function(e) {
   if (!expandRunning) {
     expandRunning = true;
+		currRadius = 1; //want a fresh animation rather than continuing from the previous radius
     requestAnimationFrame(expand);
   }
 });
 
 dvdButton.addEventListener("click", function(e) {
 	dvdRunning = false; //need this for the conditional in dvdBounce
+	expandRunning = false;
 	requestAnimationFrame(dvdBounce);
 })
 
