@@ -14,6 +14,7 @@ var dvdRunning = false;
 //----------------------------------------------------------
 
 var expandAnimationID;
+var expandWasLastAnimation;
 var maxRadius = canvas.width / 2 - 10;
 var currRadius = 0;
 var incRadius = true;
@@ -89,7 +90,8 @@ var dvdBounce = function() {
 expandButton.addEventListener("click", function(e) {
   if (!expandRunning) {
     expandRunning = true;
-		currRadius = 1; //want a fresh animation rather than continuing from the previous radius
+		if (!expandWasLastAnimation) currRadius = 1; //want a fresh animation rather than continuing from the previous radius
+		expandWasLastAnimation = true;
     requestAnimationFrame(expand);
   }
 });
@@ -97,6 +99,7 @@ expandButton.addEventListener("click", function(e) {
 dvdButton.addEventListener("click", function(e) {
 	dvdRunning = false; //need this for the conditional in dvdBounce
 	expandRunning = false;
+	expandWasLastAnimation = false;
 	requestAnimationFrame(dvdBounce);
 })
 
