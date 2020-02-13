@@ -41,6 +41,15 @@ var expand = function() {
 
 //----------------------------------------------------------
 
+var logo = new Image();
+logo.src = "logo_dvd.jpg";
+var imgWidth;
+var imgHeight;
+logo.onload = function() {
+	imgWidth = this.width;
+	imgHeight = this.height;
+};
+
 var dvdAnimationID;
 var dvdX;
 var dvdY;
@@ -54,6 +63,8 @@ var dvdBounce = function() {
 	if (!dvdRunning) {
 		dvdX = Math.floor(Math.random() * canvas.width);
 		dvdY = Math.floor(Math.random() * canvas.height);
+		if (dvdX > canvas.width - imgWidth * 0.25) dvdX -= imgWidth * 0.25;
+		if (dvdY > canvas.height - imgHeight * 0.25) dvdY -= imgHeight * 0.25;
 		directionX = directions[Math.floor(Math.random() * 2)]; //choose to go left or right
 		directionY = directions[Math.floor(Math.random() * 2)]; //choose to go up or down
 	}
@@ -64,12 +75,15 @@ var dvdBounce = function() {
 	dvdX += directionX; //horizontal movement
 	dvdY += directionY; //vertical movement
 
-	if (dvdX == 0 || dvdX == canvas.width) directionX *= -1;
-	if (dvdY == 0 || dvdY == canvas.width) directionY *= -1;
+	if (dvdX <= 0 || dvdX >= canvas.width - (imgWidth * 0.25)) directionX *= -1;
+	if (dvdY <= 0 || dvdY >= canvas.height - (imgHeight * 0.25)) directionY *= -1;
 
+	/* circle testing before DVD
 	ctx.beginPath();
 	ctx.arc(dvdX, dvdY, 5, 0, 2 * Math.PI);
 	ctx.fill();
+	*/
+	ctx.drawImage(logo, dvdX, dvdY, imgWidth * 0.25, imgHeight * 0.25);
 }
 
 expandButton.addEventListener("click", function(e) {
