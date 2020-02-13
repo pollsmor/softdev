@@ -44,6 +44,7 @@ var expand = function() {
 var dvdAnimationID;
 var dvdX;
 var dvdY;
+var directions = [-1, 1];
 var directionX;
 var directionY;
 
@@ -53,19 +54,18 @@ var dvdBounce = function() {
 	if (!dvdRunning) {
 		dvdX = Math.floor(Math.random() * canvas.width);
 		dvdY = Math.floor(Math.random() * canvas.height);
-		directionX = Math.floor(Math.random() * 2); //choose to go left or right
-		directionY = Math.floor(Math.random() * 2); //choose to go up or down
-		console.log(directionX);
-		console.log(directionY);
+		directionX = directions[Math.floor(Math.random() * 2)]; //choose to go left or right
+		directionY = directions[Math.floor(Math.random() * 2)]; //choose to go up or down
 	}
 
 	dvdRunning = true;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	if (directionX == 0) dvdX -= 1; //left
-	else dvdX += 1; //right
-	if (directionY == 0) dvdY += 1; //down
-	else dvdY -= 1; //up
+	dvdX += directionX; //horizontal movement
+	dvdY += directionY; //vertical movement
+
+	if (dvdX == 0 || dvdX == canvas.width) directionX *= -1;
+	if (dvdY == 0 || dvdY == canvas.width) directionY *= -1;
 
 	ctx.beginPath();
 	ctx.arc(dvdX, dvdY, 5, 0, 2 * Math.PI);
