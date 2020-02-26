@@ -20,7 +20,7 @@ def get_by_zip(zipcode):
     client = MongoClient('poggers-cc.ddns.net', 27017)
     db = client['test']
     collection = db['restaurants']
-    cursor = collection.find({"address.zipcode": zipcode})
+    cursor = collection.find({"address.zipcode": zipcode}) # . operator lets me access nested elements
 
     for document in cursor:
         print(document)
@@ -47,25 +47,24 @@ def get_by_zip_and_threshold(zipcode, score):
     collection = db['restaurants']
 
     #Similar reasoning to previous function.
-    cursor = collection.find({"address.zipcode": zipcode, "grades.0.score": { "$lt": score } })
+    cursor = collection.find({"address.zipcode": zipcode, "grades.0.score": { "$lt": score } }) #less than comparison
 
     for document in cursor:
         print(document)
 
     client.close()
 
-"""
-    Stuy's coordinates: 40.717952,-74.013813
-    Chambers Street station coordinates: 40.715507, -74.009209 (about as far as I want)
-    x-difference: 0.004604 (round to 0.0046)
-    Southernmost coord: 40.713352 (40.717952 - 0.0046)
-    Northernmost coord: 40.722552 (40.717952 + 0.0046)
-    Easternmost coord: -74.004609 (-74.009209 + 0.0046)
-    Westernmost coord: -74.013809 (-74.009209 - 0.0046)
-    Unfortunately Stuy is already really near the Hudson so the western coordinate doesn't matter much, if at all.
-"""
-
 #Get restaurants close to Stuy. Close defined by the distance from Stuy's first flooor entrance to the Chambers Street station (1, 2, 3 lines)
+""" Just some math:
+    | Stuy's coordinates: 40.717952,-74.013813
+    | Chambers Street station coordinates: 40.715507, -74.009209 (about as far as I want)
+    | x-difference: 0.004604 (round to 0.0046)
+    | Southernmost coord: 40.713352 (40.717952 - 0.0046)
+    | Northernmost coord: 40.722552 (40.717952 + 0.0046)
+    | Easternmost coord: -74.004609 (-74.009209 + 0.0046)
+    | Westernmost coord: -74.013809 (-74.009209 - 0.0046)
+    | Unfortunately Stuy is already really near the Hudson so the western coordinate doesn't matter much, if at all.
+"""
 def get_near_stuy():
     client = MongoClient('poggers-cc.ddns.net', 27017)
     db = client['test']
