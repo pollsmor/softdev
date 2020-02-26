@@ -3,10 +3,12 @@
 #K09 -- Mongo Basics
 #2020-02-25
 
+server_address = '127.0.0.1'
+
 from pymongo import MongoClient
 
 def get_by_borough(borough):
-    client = MongoClient('poggers-cc.ddns.net', 27017)
+    client = MongoClient(server_address, 27017)
     db = client['test']
     collection = db['restaurants']
     cursor = collection.find({"borough": borough})
@@ -17,7 +19,7 @@ def get_by_borough(borough):
     client.close()
 
 def get_by_zip(zipcode):
-    client = MongoClient('poggers-cc.ddns.net', 27017)
+    client = MongoClient(server_address, 27017)
     db = client['test']
     collection = db['restaurants']
     cursor = collection.find({"address.zipcode": zipcode}) # . operator lets me access nested elements
@@ -28,7 +30,7 @@ def get_by_zip(zipcode):
     client.close()
 
 def get_by_zip_and_grade(zipcode, grade):
-    client = MongoClient('poggers-cc.ddns.net', 27017)
+    client = MongoClient(server_address, 27017)
     db = client['test']
     collection = db['restaurants']
 
@@ -42,7 +44,7 @@ def get_by_zip_and_grade(zipcode, grade):
 
 #Today I learned that the lower your score, the better your grade. Sounds so wrong.
 def get_by_zip_and_threshold(zipcode, score):
-    client = MongoClient('poggers-cc.ddns.net', 27017)
+    client = MongoClient(server_address, 27017)
     db = client['test']
     collection = db['restaurants']
 
@@ -66,7 +68,7 @@ def get_by_zip_and_threshold(zipcode, score):
     | Unfortunately Stuy is already really near the Hudson so the western coordinate doesn't matter much, if at all.
 """
 def get_near_stuy():
-    client = MongoClient('poggers-cc.ddns.net', 27017)
+    client = MongoClient(server_address, 27017)
     db = client['test']
     collection = db['restaurants']
 
