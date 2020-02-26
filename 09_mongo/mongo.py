@@ -40,6 +40,21 @@ def get_by_zip_and_grade(zipcode, grade):
 
     client.close()
 
+#Today I learned that the lower your score, the better your grade. Sounds so wrong.
+def get_by_zip_and_threshold(zipcode, score):
+    client = MongoClient('poggers-cc.ddns.net', 27017)
+    db = client['test']
+    collection = db['restaurants']
+
+    #Similar reasoning to previous function.
+    cursor = collection.find({"address.zipcode": zipcode, "grades.0.score": { "$lt": score } })
+
+    for document in cursor:
+        print(document)
+
+    client.close()
+
 #get_by_borough("Bronx")
 #get_by_zip("10462")
 #get_by_zip_and_grade("10462", "B")
+get_by_zip_and_threshold("10462", 4)
