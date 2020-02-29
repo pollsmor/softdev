@@ -71,7 +71,7 @@ def get_dual_typed():
     client.close()
 
 def get_by_type_and_weight(type, minweight): #in kg
-   """Prints out the pokemon of the specified type, and are heavier than the specified minweight."""
+    """Prints out the pokemon of the specified type, and are heavier than the specified minweight."""
     client = MongoClient(server_address, 27017)
     db = client['rocket']
     collection = db['pokedex']
