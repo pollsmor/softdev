@@ -72,8 +72,23 @@ def get_by_type_and_weight(type, minweight): #same type that also has to be heav
 
     client.close()
 
+#Clever function
+def get_challenged(pokemon):
+    client = MongoClient(server_address, 27017)
+    db = client['rocket']
+    collection = db['pokedex']
+    weaknesses = collection.find_one({"name": pokemon})['weaknesses'] #returns a list of weaknesses of specified 'mon
+    cursor = collection.find({ "type": {"$in": weaknesses} })
+
+    for document in cursor:
+        print(document)
+        print('\n')
+
+    client.close()
+
 #create_db() #only run this when database is empty
 #get_by_type("Flying")
 #get_taller(3.0)
 #get_dual_typed()
 #get_by_type_and_weight("Ice", 130)
+get_challenged("Ditto") #normal type's only weaknesses are fighting types
