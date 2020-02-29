@@ -33,17 +33,19 @@ def get_by_type(type):
 
     client.close()
 
-def get_taller(minheight):
+def get_taller(minheight): #gets 'mons taller than your specified height (in meters)
     client = MongoClient(server_address, 27017)
     db = client['rocket']
     collection = db['pokedex']
-    cursor = collection.find({"type": type})
+    cursor = collection.find({})
 
     for document in cursor:
-        print(document)
-        print('\n')
+        if ( float(document['height'][:-2]) >= minheight):
+            print(document)
+            print('\n')
 
     client.close()
 
 #create_db() #only run this when database is empty
-get_by_type("Flying")
+#get_by_type("Flying")
+#get_taller(3.0)
