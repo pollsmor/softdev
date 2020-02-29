@@ -46,6 +46,34 @@ def get_taller(minheight): #gets 'mons taller than your specified height (in met
 
     client.close()
 
+def get_dual_typed(): #some 'mons have more than 1 type (i.e. Charizard is Fire/Flying)
+    client = MongoClient(server_address, 27017)
+    db = client['rocket']
+    collection = db['pokedex']
+    cursor = collection.find({})
+
+    for document in cursor:
+        if (len(document['type']) > 1):
+            print(document)
+            print('\n')
+
+    client.close()
+
+def get_by_type_and_weight(type, minweight): #same type that also has to be heavier than your specified weight (in kg)
+    client = MongoClient(server_address, 27017)
+    db = client['rocket']
+    collection = db['pokedex']
+    cursor = collection.find({"type": type})
+
+    for document in cursor:
+        if ( float(document['weight'][:-3]) >= minweight):
+            print(document)
+            print('\n')
+
+    client.close()
+
 #create_db() #only run this when database is empty
 #get_by_type("Flying")
 #get_taller(3.0)
+#get_dual_typed()
+#get_by_type_and_weight("Ice", 130)
