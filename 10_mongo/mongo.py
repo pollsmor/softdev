@@ -8,19 +8,6 @@ server_address = 'poggers-cc.ddns.net'
 from pymongo import MongoClient
 import json
 
-"""
-def get_by_borough(borough):
-    client = MongoClient(server_address, 27017)
-    db = client['test']
-    collection = db['restaurants']
-    cursor = collection.find({"borough": borough})
-
-    for document in cursor:
-        print(document)
-
-    client.close()
-"""
-
 def create_db():
     client = MongoClient(server_address, 27017)
     db = client['rocket']
@@ -29,7 +16,34 @@ def create_db():
     file = open("pokedex.json", 'r')
     data = json.load(file)['pokemon']
     collection.insert_many(data)
+    file.close()
 
     client.close()
 
-create_db()
+def get_by_type(type):
+    client = MongoClient(server_address, 27017)
+    db = client['rocket']
+    collection = db['pokedex']
+    #just realized that "type" is a list (some 'mons have two types), yet Mongo narrows it down just fine
+    cursor = collection.find({"type": type})
+
+    for document in cursor:
+        print(document)
+        print('\n')
+
+    client.close()
+
+def get_taller(minheight):
+    client = MongoClient(server_address, 27017)
+    db = client['rocket']
+    collection = db['pokedex']
+    cursor = collection.find({"type": type})
+
+    for document in cursor:
+        print(document)
+        print('\n')
+
+    client.close()
+
+#create_db() #only run this when database is empty
+get_by_type("Flying")
