@@ -101,8 +101,17 @@ def get_challenged(pokemon):
     client.close()
 
 #create_db() #only run this when database is empty
-#get_by_type("Flying")
-#get_taller(3.0)
-#get_dual_typed()
-#get_by_type_and_weight("Ice", 130)
+print('Flying types: \n')
+get_by_type("Flying")
+print('\n\n')
+print('Taller than 3 meters: \n')
+get_taller(3.0)
+print('\n\n')
+print('Pokemans with more than 1 type: \n')
+get_dual_typed()
+print('\n\n')
+print('Ice-types heavier than 130kg: \n')
+get_by_type_and_weight("Ice", 130)
+print('\n\n')
+print('Pokemon of type strong against Ditto (fighting): \n')
 get_challenged("Ditto") #normal type's only weaknesses are fighting types

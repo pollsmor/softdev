@@ -79,11 +79,16 @@ def get_near_stuy():
 
     for document in cursor:
         print(document)
+        print('\n')
 
     client.close()
 
-#get_by_borough("Bronx")
+#get_by_borough("Bronx") 
+print('\n\n')
 #get_by_zip("10462")
+print('\n\n')
 #get_by_zip_and_grade("10462", "B")
+print('\n\n')
 #get_by_zip_and_threshold("10462", 4)
+print('\n\n')
 get_near_stuy()
