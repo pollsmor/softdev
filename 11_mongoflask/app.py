@@ -1,3 +1,8 @@
+#Team Trees | Kevin Li, Justin Chen, Jacob Olin
+#SoftDev pd2
+#K11 -- Mongo + Flask
+#2020-03-06
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -8,4 +13,4 @@ def home():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0')
