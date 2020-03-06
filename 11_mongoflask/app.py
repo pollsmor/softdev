@@ -4,8 +4,10 @@
 #2020-03-06
 
 from flask import Flask, render_template, request
+from utl import mongo_ops
 
 app = Flask(__name__)
+mongo_ops.create_db()
 
 @app.route("/")
 def home():

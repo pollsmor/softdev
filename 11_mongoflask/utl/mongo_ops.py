@@ -1,13 +1,15 @@
 from pymongo import MongoClient
 import json
 
-def create_db():
-    """Initializes the database. Only run this on an empty database."""
-    client = MongoClient()
+client = MongoClient()
+
+def create_db(): #run this every time Flask app is launched
+    client.drop_database('rocket')
+
     db = client['rocket']
     collection = db['pokedex']
 
-    file = open("pokedex.json", 'r')
+    file = open("docs/pokedex.json", 'r')
     data = json.load(file)['pokemon'] #the outermost element is actually a curly bracket (aka. not a list)
     collection.insert_many(data)
 
