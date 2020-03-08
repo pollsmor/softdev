@@ -69,12 +69,15 @@ def get_by_type_and_weight(type, minweight): #in kg
 def get_challenged(pokemon):
     """Returns pokemon strong against your specified pokemon."""
 
-    weaknesses = collection.find_one({"name": pokemon})['weaknesses'] #returns a list of weaknesses of specified 'mon
+    your_mon = collection.find_one({"name": pokemon}) #returns the JSON of your pokemon
+    weaknesses = None
     output = [] #list of dictionaries
-    if (weaknesses):
-        cursor = collection.find({ "type": {"$in": weaknesses} }) #find pokemon with a type that is inside the weaknesses list
+    if (your_mon):
+        weaknesses = your_mon['weaknesses']
     else:
         return output
+
+    cursor = collection.find({ "type": {"$in": weaknesses} }) #find pokemon with a type that is inside the weaknesses list
 
     for document in cursor:
         output.append(document)
