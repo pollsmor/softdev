@@ -22,6 +22,17 @@ def results():
     pokemon = request.args.get('pokemon')
     query = None
 
+    if type and minweight:
+        title = "Type picker + minimum weight"
+        query = mongo_ops.get_by_type_and_weight(type, minweight)
+    else:
+        title = "Type picker"
+        query = mongo_ops.get_by_type(type)
+
+    if minheight:
+        title = "Minimum height"
+        query = mongo_ops.get_taller(minheight)
+
     if dualtype == 'true':
         title = "Dual-typed Pokemon"
         query = mongo_ops.get_dual_typed()
