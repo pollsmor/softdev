@@ -16,22 +16,22 @@ def home():
 @app.route("/results")
 def results():
     type = request.args.get('type')
-    minheight = float(request.args.get('minheight'))
-    minweight = float(request.args.get('minweight'))
+    minheight = request.args.get('minheight') #can't use float() here in case minheight
+    minweight = request.args.get('minweight') #and minweight are not the query
     dualtype = request.args.get('dualtype')
     pokemon = request.args.get('pokemon')
     query = None
 
     if type and minweight:
         title = "Type picker + minimum weight"
-        query = mongo_ops.get_by_type_and_weight(type, minweight)
+        query = mongo_ops.get_by_type_and_weight(type, float(minweight))
     else:
         title = "Type picker"
         query = mongo_ops.get_by_type(type)
 
     if minheight:
         title = "Minimum height"
-        query = mongo_ops.get_taller(minheight)
+        query = mongo_ops.get_taller(float(minheight))
 
     if dualtype == 'true':
         title = "Dual-typed Pokemon"
