@@ -16,8 +16,8 @@ def home():
 @app.route("/results")
 def results():
     type = request.args.get('type')
-    minheight = request.args.get('minheight')
-    minweight = request.args.get('minweight')
+    minheight = float(request.args.get('minheight'))
+    minweight = float(request.args.get('minweight'))
     dualtype = request.args.get('dualtype')
     pokemon = request.args.get('pokemon')
     query = None
