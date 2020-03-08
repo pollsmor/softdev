@@ -1,16 +1,16 @@
 {% extends "index.html" %}
 
 {% block content %}
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Name</th>
-    <th>Type(s)</th>
-    <th>Height</th>
-    <th>Weight</th>
-    <th>Type weaknesses</th>
-  </tr>
-
+<table class="table table-hover">
+  <thead><tr>
+    <th scope="col">Number</th>
+    <th scope="col">Name</th>
+    <th scope="col">Type(s)</th>
+    <th scope="col">Height</th>
+    <th scope="col">Weight</th>
+    <th scope="col">Type weaknesses</th>
+  </tr></thead>
+  <tbody>
   {% for dict in dictList %}
     <tr>
     {% for key, value in dict.items() %}
@@ -18,6 +18,6 @@
     {% endfor %}
     </tr>
   {% endfor %}
-
+  </tbody>
 </table>
 {% endblock %}
