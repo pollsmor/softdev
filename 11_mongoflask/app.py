@@ -39,6 +39,7 @@ def results():
 
     if pokemon:
         title = ("Pokemon strong against: " + pokemon)
+        query = mongo_ops.get_challenged(pokemon)
 
     dictList = []
     for element in query:
