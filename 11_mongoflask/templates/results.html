@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Type(s)</th>
+    <th>Height</th>
+    <th>Weight</th>
+    <th>Type weaknesses</th>
+  </tr>
+
+  {% for element in query %}
+    <tr>
+    {% for key, value in query.items() %}
+      <td>{{ value }}</td>
+    {% endfor }
+    </tr>
+  {% endfor }
+
+</table>
+{% endblock %}

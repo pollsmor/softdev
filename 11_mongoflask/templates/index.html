@@ -2,27 +2,29 @@
 <html>
   <head>
     <meta charset="utf8">
-    <title>Mongo Frontend</title>
+    <title>{{ title }}</title>
   </head>
   <body>
+    <h1>{{ title }}</h1>
+    {% block content %}
     <h2>Type picker</h2>
     <form action="/results">
     <select name="type">
-      <option type="radio" value="bug">Bug</option>
-      <option type="radio" value="dragon">Dragon</option>
-      <option type="radio" value="electric">Electric</option>
-      <option type="radio" value="fighting">Fighting</option>
-      <option type="radio" value="fire">Fire</option>
-      <option type="radio" value="flying">Flying</option>
-      <option type="radio" value="ghost">Ghost</option>
-      <option type="radio" value="grass">Grass</option>
-      <option type="radio" value="ground">Ground</option>
-      <option type="radio" value="ice">Ice</option>
-      <option type="radio" value="normal">Normal</option>
-      <option type="radio" value="poison">Poison</option>
-      <option type="radio" value="psychic">Psychic</option>
-      <option type="radio" value="rock">Rock</option>
-      <option type="radio" value="water">Water</option>
+      <option value="bug" required>Bug</option>
+      <option value="dragon">Dragon</option>
+      <option value="electric">Electric</option>
+      <option value="fighting">Fighting</option>
+      <option value="fire">Fire</option>
+      <option value="flying">Flying</option>
+      <option value="ghost">Ghost</option>
+      <option value="grass">Grass</option>
+      <option value="ground">Ground</option>
+      <option value="ice">Ice</option>
+      <option value="normal">Normal</option>
+      <option value="poison">Poison</option>
+      <option value="psychic">Psychic</option>
+      <option value="rock">Rock</option>
+      <option value="water">Water</option>
     </select>
     <input type="submit" value="Submit">
     </form><hr>
@@ -39,21 +41,21 @@
     <h2>Type picker + get heavier Pokemon than specified (in kilograms)
     <form action="/results">
     <select name="type">
-      <option type="radio" value="bug" required>Bug</option>
-      <option type="radio" value="dragon">Dragon</option>
-      <option type="radio" value="electric">Electric</option>
-      <option type="radio" value="fighting">Fighting</option>
-      <option type="radio" value="fire">Fire</option>
-      <option type="radio" value="flying">Flying</option>
-      <option type="radio" value="ghost">Ghost</option>
-      <option type="radio" value="grass">Grass</option>
-      <option type="radio" value="ground">Ground</option>
-      <option type="radio" value="ice">Ice</option>
-      <option type="radio" value="normal">Normal</option>
-      <option type="radio" value="poison">Poison</option>
-      <option type="radio" value="psychic">Psychic</option>
-      <option type="radio" value="rock">Rock</option>
-      <option type="radio" value="water">Water</option>
+      <option value="bug" required>Bug</option>
+      <option value="dragon">Dragon</option>
+      <option value="electric">Electric</option>
+      <option value="fighting">Fighting</option>
+      <option value="fire">Fire</option>
+      <option value="flying">Flying</option>
+      <option value="ghost">Ghost</option>
+      <option value="grass">Grass</option>
+      <option value="ground">Ground</option>
+      <option value="ice">Ice</option>
+      <option value="normal">Normal</option>
+      <option value="poison">Poison</option>
+      <option value="psychic">Psychic</option>
+      <option value="rock">Rock</option>
+      <option value="water">Water</option>
     </select>
 
     <input type="number" name="minweight" min="0" max="100" required>
@@ -66,5 +68,6 @@
       <input type="text" name="pokemon" required>
       <input type="submit" value="Submit">
     </form>
+    {% endblock %}
   </body>
 </html>
