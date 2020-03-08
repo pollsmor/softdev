@@ -70,8 +70,11 @@ def get_challenged(pokemon):
     """Returns pokemon strong against your specified pokemon."""
 
     weaknesses = collection.find_one({"name": pokemon})['weaknesses'] #returns a list of weaknesses of specified 'mon
-    cursor = collection.find({ "type": {"$in": weaknesses} }) #find pokemon with a type that is inside the weaknesses list
     output = [] #list of dictionaries
+    if (weaknesses):
+        cursor = collection.find({ "type": {"$in": weaknesses} }) #find pokemon with a type that is inside the weaknesses list
+    else:
+        return output
 
     for document in cursor:
         output.append(document)
