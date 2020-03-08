@@ -11,13 +11,13 @@
     <th>Type weaknesses</th>
   </tr>
 
-  {% for element in query %}
+  {% for dict in dictList %}
     <tr>
-    {% for key, value in query.items() %}
+    {% for key, value in dict.items() %}
       <td>{{ value }}</td>
-    {% endfor }
+    {% endfor %}
     </tr>
-  {% endfor }
+  {% endfor %}
 
 </table>
 {% endblock %}

@@ -20,6 +20,7 @@ def results():
     minweight = request.args.get('minweight')
     dualtype = request.args.get('dualtype')
     pokemon = request.args.get('pokemon')
+    query = None
 
     if dualtype == 'true':
         title = "Dual-typed Pokemon"
@@ -28,7 +29,18 @@ def results():
     if pokemon:
         title = ("Pokemon strong against: " + pokemon)
 
-    return render_template("results.html", title = title, query = query)
+    dictList = []
+    for element in query:
+        dict = {}
+        dict['number'] = element['num']
+        dict['name'] = element['name']
+        dict['types'] = element['type']
+        dict['height'] = element['height']
+        dict['weight'] = element['weight']
+        dict['weaknesses'] = element['weaknesses']
+        dictList.append(dict)
+
+    return render_template("results.html", title = title, dictList = dictList)
 
 if __name__ == "__main__":
     app.debug = True
