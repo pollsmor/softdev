@@ -20,12 +20,12 @@ def results():
     minweight = request.args.get('minweight') #and minweight are not the query
     dualtype = request.args.get('dualtype')
     pokemon = request.args.get('pokemon')
-    query = None
+    query = None #for scope
 
-    if type and minweight:
+    if type and minweight: #checks if those arguments are not empty
         title = "Type picker + minimum weight"
         query = mongo_ops.get_by_type_and_weight(type, float(minweight))
-    else:
+    else: #no minimum weight selected
         title = "Type picker"
         query = mongo_ops.get_by_type(type)
 
@@ -41,9 +41,9 @@ def results():
         title = ("Pokemon strong against: " + pokemon)
         query = mongo_ops.get_challenged(pokemon)
 
-    dictList = []
+    dictList = [] #the full dictionary contains what I deem "unncessary" data
     for element in query:
-        dict = {}
+        dict = {} #only "necessary" data in here!
         dict['number'] = element['num']
         dict['name'] = element['name']
         dict['types'] = element['type']
