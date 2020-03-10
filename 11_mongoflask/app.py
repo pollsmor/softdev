@@ -46,6 +46,7 @@ def results():
         dict = {} #only "necessary" data in here!
         dict['number'] = element['num']
         dict['name'] = element['name']
+        dict['img'] = element['img']
         dict['types'] = element['type']
         dict['height'] = element['height']
         dict['weight'] = element['weight']
