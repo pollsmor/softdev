@@ -14,17 +14,55 @@
   </head>
   <body>
     <br>
-    <div class="text-center">
+    <div>
       <div class="jumbotron">
         <img width="25%" src="static/flutter.png"></img>
         <p class="lead">A toolkit by Google for building applications that work on mobile,
                         web, and desktop, from a single codebase.</p>
         <hr class="my-4">
-        <p>You have no need of creating/maintaining separate versions of your apps for iPhones or Android devices!</p>
+        <ul>
+          <li>You have no need of creating/maintaining separate versions of your apps for iPhones or Android devices!</li>
+          <li>Version 1.0 was released back in December 2018 (it is currently on 1.12)</li>
+        </ul>
+        <hr class="my-4">
+        <img width=150px" src="static/android_version.png"></img>
+        <img width=150px" src="static/ios_version.png"></img>
       </div>
 
       <div class="jumbotron">
         <h1 class="display-4">What sets Flutter apart?</h1>
+        <p class="lead">Performance</p>
+        <ul>
+          <li>Compiles to native code for a platform so performance is barely impacted</li>
+          <li>Alternative frameworks give up performance in some way (i.e. React Native uses
+              a JavaScript bridge and Ionic uses web elements)</li>
+        </ul>
+        <hr class="my-4">
+        <p class="lead">Hot Reload</p>
+        <ul>
+          <li>Changes you make to your code get pushed to the device instantly (< 1 second)</li>
+          <li>No need to compile the program over and over, speeds up development</li>
+        </ul>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-4">Structure of a Flutter program</h1>
+        <p class="lead">A Flutter program is a tree of widgets. Everything is a widget in Flutter:</p>
+        <ul>
+          <li>Center (does it according to its parent widget)</li>
+          <li>Text</li>
+          <li>Row/column (laying elements left to right or top to bottom, respectively)</li>
+          <li>Container (can wrap another widget inside it, allowing you to apply styling to it such as color)</li>
+          <li>Much more, because you're not limited to the provided ones - you can easily download user-created widgets from the web!</li>
+        </ul>
+        <hr class="my-4">
+        <p class="lead">A widget can be "stateless" or "stateful" depending on if you want it to update
+                        for some reason (e.g. liking a tweet)</p>
+        <p>Flutter is smart enough to only redraw widgets you want to update - it doesn't
+           refresh the entire page, leading to high performance.</p>
+        <hr class="my-4">
+        <img width=150px" src="static/empty_heart.png"></img>
+        <img width=150px" src="static/filled_heart.png"></img>
       </div>
     </div>
   </body>
