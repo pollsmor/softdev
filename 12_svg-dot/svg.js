@@ -1,3 +1,8 @@
+//We Suck At Calculus - Kevin Li / Derek Leung (Big Buford)
+//SoftDev pd2
+//K12 -- Connect the Dots 2.0
+//2020-03-27
+
 var namespace = "http://www.w3.org/2000/svg"; //don't want to keep retyping this
 var pic = document.getElementById("vimage");
 var clearbutton = document.getElementById("clear");
