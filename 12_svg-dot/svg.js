@@ -3,6 +3,8 @@ var pic = document.getElementById("vimage");
 var clearbutton = document.getElementById("clear");
 var drawnOn = false; //var to keep track of whether to start a new path or continue off previous one
 
+var oldX, oldY;
+
 var clear = function() {
   var rect = document.createElementNS(namespace, "rect");
   rect.setAttribute("width", 500);
@@ -24,27 +26,28 @@ var draw = function(e) {
     c.setAttribute("cy", y);
     c.setAttribute("r", 4);
     c.setAttribute("fill", "green");
-
     pic.appendChild(c);
   } else { //continue previous path
+    var c = document.createElementNS(namespace, "circle");
+    c.setAttribute("cx", x);
+    c.setAttribute("cy", y);
+    c.setAttribute("r", 4);
+    c.setAttribute("fill", "green");
+    pic.appendChild(c);
 
+    var line = document.createElementNS(namespace, "line");
+    line.setAttribute("x1", oldX);
+    line.setAttribute("y1", oldY);
+    line.setAttribute("x2", x);
+    line.setAttribute("y2", y);
+    line.setAttribute("stroke-width", 1);
+    line.setAttribute("stroke", "green");
+    pic.appendChild(line);
   }
+
+  oldX = x;
+  oldY = y;
 }
-
-//<svg id="vimage" height="500" width="500" style="border: 1px solid;">
-
-/*
-var c = document.createElementNS(
-  "http://www.w3.org/2000/svg", "circle");
-
-c.setAttribute("cx", 0);
-c.setAttribute("cy", 0);
-c.setAttribute("r", 100);
-c.setAttribute("fill", "red");
-c.setAttribute("stroke", "black");
-
-pic.appendChild(c);
-*/
 
 clearbutton.addEventListener("click", clear);
 pic.addEventListener("click", draw);
