@@ -8,7 +8,7 @@ const ctx = canvas.getContext('2d');
 
 var clear = document.getElementById('clear');
 
-var drawnOn = 0; //var to keep track of whether to start a new path or cotninue off previous one
+var drawnOn = 0; //var to keep track of whether to start a new path or continue off previous one
 
 var clearCanvas = function(e) {
   drawnOn = 0;
