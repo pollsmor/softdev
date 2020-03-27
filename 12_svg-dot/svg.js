@@ -1,15 +1,15 @@
-var namespace = "http://www.w3.org/2000/svg";
+var namespace = "http://www.w3.org/2000/svg"; //don't want to keep retyping this
 var pic = document.getElementById("vimage");
 var clearbutton = document.getElementById("clear");
 var drawnOn = false; //var to keep track of whether to start a new path or continue off previous one
 
-var oldX, oldY;
+var oldX, oldY; //to keep track of old positions for use with connecting dots
 
 var clear = function() {
   var rect = document.createElementNS(namespace, "rect");
   rect.setAttribute("width", 500);
   rect.setAttribute("height", 500);
-  rect.setAttribute("style", "fill:rgb(255,255,255);");
+  rect.setAttribute("style", "fill:rgb(255,255,255);"); //big brain maneuvers
   pic.appendChild(rect);
   drawnOn = false;
 }
