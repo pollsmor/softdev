@@ -14,7 +14,7 @@ var clear = function() {
   var rect = document.createElementNS(namespace, "rect");
   rect.setAttribute("width", 500);
   rect.setAttribute("height", 500);
-  rect.setAttribute("style", "fill:rgb(255,255,255);"); //big brain maneuvers
+  rect.setAttribute("style", "fill:rgb(255,255,255);");
   pic.appendChild(rect);
   drawnOn = false;
 }
