@@ -5,14 +5,15 @@
 
 var namespace = "http://www.w3.org/2000/svg"; //don't want to keep retyping this
 var pic = document.getElementById("vimage");
-var animationID;
+var moveAnimationID;
+var xtraAnimationID;
 var directions = [-1, 1]; //pick one of the two for directionX and directionY: -1 for left and up, 1 for right and down.
 
 var clearbutton = document.getElementById("clear");
 var movebutton = document.getElementById("move");
 var xtrabutton = document.getElementById("xtra");
 
-var clear = function() {
+var clear = function() { //just painting everything over with a blank rectangle will not perform as well now that it's an animation
   var curr = pic.firstChild;
   while (curr) {
     pic.removeChild(curr);
@@ -21,7 +22,7 @@ var clear = function() {
 }
 
 var draw = function(e) {
-  if (e.target == pic) {
+  if (e.target == pic) { //thanks to David Xiedeng for this fix!
     var x = e.offsetX;
     var y = e.offsetY;
 
@@ -30,19 +31,21 @@ var draw = function(e) {
     c.setAttribute("cy", y);
     c.setAttribute("r", 20);
     c.setAttribute("fill", "blue");
+    c.setAttribute("stroke", "black");
+    c.setAttribute("stroke-width", 5);
 
     pic.appendChild(c);
   }
 }
 
 var move = function(e) {
-  cancelAnimationFrame(animationID);
-	animationID = requestAnimationFrame(move);
+  cancelAnimationFrame(moveAnimationID);
+	moveAnimationID = requestAnimationFrame(move);
 
   var circles = pic.children;
   for (var i = 0; i < circles.length; i++) {
     var directionX, directionY;
-    var moving = circles[i].getAttribute("moving");
+    var moving = circles[i].getAttribute("moving"); //keep track of whether directions should be assigned or not
     if (moving !== "true") { //don't want it to change directions once it has started moving
       circles[i].setAttribute("moving", "true");
       directionX = directions[Math.floor(Math.random() * 2)]; //choose to go left or right
@@ -64,6 +67,24 @@ var move = function(e) {
   }
 }
 
+//I would make it so that the circles themselves change colors rather than just the outlines,
+//but I'm afraid of being sued for causing a seizure.
+var xtra = function(e) { //DJ function!
+  cancelAnimationFrame(xtraAnimationID);
+  xtraAnimationID = requestAnimationFrame(xtra);
+
+  var circles = pic.children;
+  for (var i = 0; i < circles.length; i++) {
+    var r = Math.floor(Math.random() * 256).toString();
+    var g = Math.floor(Math.random() * 256).toString();
+    var b = Math.floor(Math.random() * 256).toString();
+    var color = "rgb(";
+    color += (r + ", " + g + ", " + b + ")");
+
+    circles[i].setAttribute("stroke", color);
+  }
+}
+
 //------------------------------------------------------------------------------
 clearbutton.addEventListener("click", clear);
 pic.addEventListener("click", draw);
@@ -71,3 +92,7 @@ pic.addEventListener("click", draw);
 movebutton.addEventListener("click", function(e) {
   requestAnimationFrame(move);
 });
+
+xtrabutton.addEventListener("click", function(e) {
+  requestAnimationFrame(xtra);
+})
