@@ -53,14 +53,14 @@ var move = function(e) {
 
     directionX = parseInt(circles[i].getAttribute("directionX"));
     directionY = parseInt(circles[i].getAttribute("directionY"));
-    var x = parseInt(circles[i].getAttribute("cx"));
-    var y = parseInt(circles[i].getAttribute("cy"));
+    var x = parseInt(circles[i].getAttribute("cx")) + directionX;
+    var y = parseInt(circles[i].getAttribute("cy")) + directionY;
 
-    circles[i].setAttribute("cx", x + directionX); //horizontal movement; is -1 or 1
-    circles[i].setAttribute("cy", y + directionY); //vertical movement
-
-  	if (x <= 20 || x >= 480) circles[i].setAttribute("directionX", directionX * -1); //reverse direction upon reaching a corner
+    if (x <= 20 || x >= 480) circles[i].setAttribute("directionX", directionX * -1); //reverse direction upon reaching a corner
   	if (y <= 20 || y >= 480) circles[i].setAttribute("directionY", directionY * -1);
+
+    circles[i].setAttribute("cx", x); //horizontal movement; is -1 or 1
+    circles[i].setAttribute("cy", y); //vertical movement
   }
 }
 
