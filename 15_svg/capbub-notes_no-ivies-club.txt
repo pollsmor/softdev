@@ -3,7 +3,7 @@ SoftDev pd2 & pd1
 K15 -- Event Propagation Observations
 2020-04-01
 
-v1
+v1 (kli)
 Predictions:
 - The text inside the cells will appear as a popup when you click on one of them
 - After a few times clicking it Firefox will ask me if I want the website to stop making more popups
@@ -17,7 +17,7 @@ Anything else:
   (besides deleting all the data in the browser, that is)
 -------------------------------------------------------------------------------
 
-v2
+v2 (kli)
 Predictions:
 - Considering the words "bubble up" I'm inclined to believe that the "childest" child alerts first.
 - Alerts wait for one another, the second alert doesn't appear until the first is dismissed.
@@ -32,7 +32,7 @@ Anything else:
 - I didn't even notice that the table was actually index 0 until opening it in the browser
 -------------------------------------------------------------------------------
 
-v3
+v3 (kli)
 Predictions:
 - According to analysis in the anything else section, the table is triggered first, then the <td>, then the <tr>.
 - I actually used stopPropagation() in a previous assignment. It should make it so that once the table alerts,
@@ -49,18 +49,23 @@ Anything else:
 -
 -------------------------------------------------------------------------------
 
-v4
+v4 (raylee)
 Predictions:
--
--
--
+- e.stopPropagation() should stop any more alerts after the first alert, since it
+stops the event from bubbling up to parent elements.
+- With the addition of e.stopPropagation(), the order of event listeners won't
+matter since, bubbling will be stopped after the leaf table nodes fire off an alert.
+- Without e.stopPropagation(), the order of event listeners won't matter either
+since, bubbling will start from the deepest level.
 
 Observations:
--
--
--
+- e.stopPropagation() works as expected. When commented out, there are 3 alerts.
+- With the addition of e.stopPropagation(), the order doesn't matter but not because
+of the addition itself. The clicky functions fire off from the tree top down, not the
+opposite. This is because the event handler is set during the capture phase (because
+ of the third "true" argument in addEventListener) instead of bubbling phase.
+- Without e.stopPropation(), the order is the same.
 
 Anything else:
--
--
--
+- When would it be useful to set event handlers on the capture phase instead of
+the bubbling phase? And vice versa?
