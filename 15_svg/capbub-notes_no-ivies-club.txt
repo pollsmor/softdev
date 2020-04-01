@@ -5,52 +5,47 @@ K15 -- Event Propagation Observations
 
 v1
 Predictions:
--
--
--
+- The text inside the cells will appear as a popup when you click on one of them
+- After a few times clicking it Firefox will ask me if I want the website to stop making more popups
 
 Observations:
--
--
--
+- First prediction was correct
+- It only took 2 clicks for the checkbox to prevent additional dialogs to appear
 
 Anything else:
--
--
--
+- What if I accidentally ticked that checkbox? It's a necessary part of the website. How can I "untick" it?
+  (besides deleting all the data in the browser, that is)
 -------------------------------------------------------------------------------
 
 v2
 Predictions:
--
--
--
+- Considering the words "bubble up" I'm inclined to believe that the "childest" child alerts first.
+- Alerts wait for one another, the second alert doesn't appear until the first is dismissed.
+- So if I click "Yoda", I should get alerted "Yoda", then "Yoda Luke Obi-Wan", then the entire table.
 
 Observations:
--
--
--
+- First prediction was correct
+- I didn't expect the <td> tags to also be included in the second alert though
+- I also thought that the outermost element would be <table>, not <tbody>.
 
 Anything else:
--
--
--
+- I didn't even notice that the table was actually index 0 until opening it in the browser
 -------------------------------------------------------------------------------
 
 v3
 Predictions:
--
--
--
+- According to analysis in the anything else section, the table is triggered first, then the <td>, then the <tr>.
+- I actually used stopPropagation() in a previous assignment. It should make it so that once the table alerts,
+  it is stopped dead in its tracks. The td and tr don't give out alerts at all.
 
 Observations:
--
--
--
+- Indeed went <tbody>, <td>, <tr>
+- stopPropagation() did work as expected
 
 Anything else:
--
--
+- true is the third element for addEventListener
+- According to my research on the MDN, this corresponds to the "capture" argument,
+  which means it gets triggered before its children does (basically )
 -
 -------------------------------------------------------------------------------
 
