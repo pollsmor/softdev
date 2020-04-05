@@ -1,0 +1,28 @@
+No Ivies Club -- Kevin Li & Raymond Lee
+SoftDev pd2 / pd1
+K16 -- Dabbling in D3
+2020-04-02
+
+00
+Predictions
+- Every element in the "chart" div is styled according to the internal stylesheet (e.g. bg-color of steelblue)
+- Width of each bar gets longer down the page as specified
+
+Observations
+- Nothing unexpected, really
+
+================================================================================
+
+01
+Predictions
+- Initial load of the page is empty until commented commands are run in dev console
+- First sign of things happening on the page is from running the .enter().append("div") command,
+  but every bar will be really small and take up the same amount of space
+
+Observations
+- Forgot that the default behavior of a div is to take up the whole width of its row
+- Otherwise, pretty expected behavior
+
+Others
+- The chart variable is just an empty div. What's the point of running .selectAll() on chart?
+- Kinda confused as to what the .data() and .enter() functions do

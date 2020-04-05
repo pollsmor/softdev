@@ -1,0 +1,102 @@
+<!-- Qaffers - Kevin Li & David Xiedeng
+     SoftDev2 pd2 / pd1
+     K17: Deeper into D3
+     2020-04-05 -->
+
+<!DOCTYPE html>
+<!--D3 demo: hardcoded bars removed, to be generated fr data-->
+<!--
+    Can yield a horizontal bar chart if properly bound to data
+    (steelblue bars, white number overlays)
+    ...but will yield only blank page at first.
+  -->
+<!--
+Clyde "Thluffy" Sinclair
+SoftDev2 pd0
+2099-12-31
+-->
+
+<style>
+  .chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+  }
+</style>
+
+<div class="chart">
+</div>
+
+<script src="http://d3js.org/d3.v5.min.js"
+	charset="utf-8"></script>
+
+<!--------------------------------
+    Entering the following commands via console will
+    incrementally re-create your hardcoded chart...
+    //Init your data:
+    var data = [4, 8, 15, 16, 23, 42];
+    //Select your chart.
+    var chart = d3.select(".chart");
+    //Prepare for data join.
+    var bar = chart.selectAll("div");
+    (this defines selection to which you will join data)
+    //Join your data.
+    var barUpdate = bar.data(data);
+    //Instantiate new elements by appending to the “enter selection.”
+    var barEnter = barUpdate.enter().append("div");
+    //Set width of each bar proportional to its data value.
+    barEnter.style("width", function(d) {
+    return d * 10 + "px"; });
+    //Label each bar.
+    barEnter.text(function(d) { return d; });
+
+    Notes
+    Predictions
+    - Initial load of the page is empty until commented commands are run in dev console
+    - First sign of things happening on the page is from running the .enter().append("div") command,
+      but every bar will be really small and take up the same amount of space
+
+    Observations
+    - Forgot that the default behavior of a div is to take up the whole width of its row
+    - Otherwise, pretty expected behavior
+
+    Others
+    - The chart variable is just an empty div. What's the point of running .selectAll() on chart?
+    - Kinda confused as to what the .data() and .enter() functions do
+
+
+    Enhanced notes
+    - console.log(data)
+      - Returns the array as defined
+    - console.log(chart)
+      - Returns a Pt (whatever that is) that contains two key-value pairs: _groups to an Array,
+        and _parents to some HTML
+      - Makes sense that it has none of the data from the defined array yet since they're
+        not joined together yet
+    - console.log(bar)
+      - Also returns a Pt, but this time _groups corresponds to a NodeList
+        and _parents to <div class="chart">
+    - console.log(barUpdate)
+      - Now the Pt has a _enter, _exit_ and _groups array.
+      - The _groups array is 6 large so I thought it would contain the 6 numbers
+        in the array we defined earlier, but it seems to be empty.
+    - console.log(barEnter)
+      - The _groups array is no longer empty, but it just contains 6 empty divs.
+        Have yet to see any actual numbesr in place of them.
+      - The _enter and _exit arrays have disappeared. It's rather clean atm.
+    - The barEnter.style() command automatically returned something, no console.log() required.
+      - The previous commands were setting a variable to something, not returning.
+      - If I *do* console.log() it though, it prints itself and returns undefined.
+      - Whoa. Now the divs contain the specified widths from the defined array. Where does the
+        "d" variable in function(d) originate from? Seems to come out of nowhere.
+      - The _parents and _groups array contain the same thing now? 6 divs styled to the correct width.
+    - barEnter.text()
+      - Oh wait, d is just what's between the two div tags. My web console just automatically
+        puts in ellipses so I don't see the actual data. I do though if I copy it as HTML.
+      - That explains where function(d) comes from. It doesn't come from thin air.
+      - bar.data(data) is where the data is initially inserted into the divs. It was a bunch of ellipses
+        so I initially overlooked it.
+  -------------------------------->
