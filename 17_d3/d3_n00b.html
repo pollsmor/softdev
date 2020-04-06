@@ -16,6 +16,7 @@ SoftDev2 pd0
 2099-12-31
 -->
 
+<!--
 <style>
   .chart div {
   font: 10px sans-serif;
@@ -26,12 +27,15 @@ SoftDev2 pd0
   color: white;
   }
 </style>
+-->
 
-<div class="chart">
+<div id="chart">
 </div>
 
 <script src="http://d3js.org/d3.v5.min.js"
 	charset="utf-8"></script>
+
+<script src="barchart.js"></script>
 
 <!--------------------------------
     Entering the following commands via console will
@@ -52,6 +56,16 @@ SoftDev2 pd0
     return d * 10 + "px"; });
     //Label each bar.
     barEnter.text(function(d) { return d; });
+
+    //Transitions 1: fade to black
+    d3.select("body").transition()
+    .style("background-color", "black");
+
+    //Transitions 2: resize circles with delay
+    d3.selectAll("circle").transition()
+    .duration(750)
+    .delay(function(d, i) { return i * 10; })
+    .attr("r", function(d) { return Math.sqrt(d * scale); });
 
     Notes
     Predictions
