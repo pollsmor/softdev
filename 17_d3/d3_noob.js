@@ -1,7 +1,7 @@
 const data = [4, 8, 15, 16, 23, 42];
 
 const createChart = function() {
-  const div = d3.create("div")
+  const div = d3.select(".chart")
       .style("font", "10px sans-serif")
       .style("text-align", "right")
       .style("color", "white");
@@ -15,10 +15,10 @@ const createChart = function() {
       .style("width", function(d) {
         return d * 10 + "px";
       })
-      .text(d => d);
+      .text(d => d)
+      .transition().style("background-color", "black");
 
   return div.node();
 }
 
-var div = document.getElementById("chart");
-div.appendChild(createChart());
+createChart();

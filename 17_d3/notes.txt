@@ -1,0 +1,22 @@
+Qaffers - Kevin Li & David Xiedeng
+SoftDev2 pd2 / pd1
+K17: Deeper into D3
+2020-04-06
+
+2. By Example
+Notes/observations
+- Change stuff and seeing what happens is good, fast learning
+- The import examples have a default set of data that is used if you don't specify
+  any/type something wrong (i.e. the histogram defaults to unemployment % and county)
+- Being able to lazily load more of the array is cool (.. more)
+  - Probably a performance optimization to not have to load 1000000 things at once
+- Okay setting the height as 0 was a bad idea
+- Me: invalid module shows up a an error when the d3 version is too low (2 in this case)
+  - No median feature back then?
+- Can add our own lines of code and pin them, and even comment on them
+
+
+Questions
+- Is the number for the height the absolute amount of pixels the histogram takes up?
+- - Why do seemingly the same things appear twice? (the top one is uneditable)
+- Curious about the power usage to the client device of the chart3 example (slider)
