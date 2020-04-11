@@ -6,8 +6,15 @@
 		<link href="../static/style.css" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <button type="button">Render</button>
-    <button type="button">Transition</button>
+    <button id="render" type="button">Render</button>
+    <button id="transition" type="button">Transition</button>
+
+    <div class="graph">
+    </div>
   </body>
+  <script src="http://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript">
+    var data = {{ data|tojson }}
+  </script>
   <script src="static/transition.js"></script>
 </html>
