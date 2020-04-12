@@ -7,6 +7,8 @@ var renderButton = document.getElementById("render");
 var transitionButton = document.getElementById("transition");
 
 var render = function() {
+  renderButton.removeEventListener("click", render);
+
   var dlist = d3.entries(data['nyc']);
   var width = 1000;
   var height = 500;
@@ -20,16 +22,45 @@ var render = function() {
     .range([height - margin.bottom, margin.top])
     .domain([0, d3.max(dlist.map(d => d.value))]);
 
-  d3.select("#svg")
-      .attr("viewBox", [0, 0, width, height])
-  d3.select("#svg")
-    .append("g")
-      .attr("transform", 'translate(0,' + (height - margin.bottom) + ')')
-      .call(d3.axisBottom(x))
-  d3.select("#svg")
-    .append("g")
-      .attr("transform", 'translate(' + margin.left + ',0)')
-      .call(d3.axisLeft(y));
+  var svg = d3.select("#svg");
+
+  svg.append("text")
+      .attr("x", (width / 2))
+      .attr("y", (margin.top / 1.5))
+      .attr("font-family", "sans-serif")
+      .attr("text-anchor", "middle")
+      .attr("fill", "black")
+      .style("font-size", 16)
+      .style("text-decoration", "underline")
+      .text("Population Change of New York City")
+
+  svg.append("g")
+      .attr("fill", "steelblue")
+    .selectAll("rect")
+    .data(dlist)
+    .join("rect")
+      .attr("x", d => x(d.key))
+      .attr("y", d => y(d.value))
+      .attr("height", d => y(0) - y(d.value))
+      .attr("width", x.bandwidth() - 3)
+      .attr("transform", 'translate(0,' + (margin.top / 2) + ')');
+
+  svg.attr("viewBox", [0, 0, width, height]);
+
+  svg.append("g")
+      .attr("transform", 'translate(0,' + (height - 20)+ ')')
+      .call(d3.axisBottom(x));
+
+  svg.append("g")
+      .attr("transform", 'translate(' + margin.left + ',' + margin.top + ')')
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "black")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 12)
+      .attr("x", 0)
+      .attr("y", 10)
+      .text("Population");
 }
 
 renderButton.addEventListener("click", render);
