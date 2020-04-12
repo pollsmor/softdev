@@ -11,20 +11,20 @@ def read_csv():
     data = csv.reader(f)
     next(data) #header row is irrelevant
     for row in data:
-        print(row)
-        arr = []
-        arr.append(row[2])
-        arr.append(row[4])
-        arr.append(row[6])
-        arr.append(row[8])
-        arr.append(row[10])
-        arr.append(row[12])
-        arr.append(row[14])
-        arr.append(row[16])
-        arr.append(row[18])
-        arr.append(row[20])
+        dict = {}
+        dict['1950'] = row[2]
+        dict['1960'] = row[4]
+        dict['1970'] = row[6]
+        dict['1980'] = row[8]
+        dict['1990'] = row[10]
+        dict['2000'] = row[12]
+        dict['2010'] = row[14]
+        dict['2020'] = row[16]
+        dict['2030'] = row[18]
+        dict['2040'] = row[20]
 
-        output_dict[boroughs[borough_idx]] = arr
+
+        output_dict[boroughs[borough_idx]] = dict
         borough_idx += 1
 
     f.close()
