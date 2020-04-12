@@ -14,12 +14,11 @@ var height = 500;
 var margin = {top: 20, right: 0, bottom: 30, left: 70};
 
 var render = function() {
-  renderButton.removeEventListener("click", render);
+  renderButton.removeEventListener("click", render); //don't want to be able to click this multiple times
+  transitionButton.addEventListener("click", transition); //disallow transitions until render is clicked
+  var dlist = d3.entries(data['nyc']); //overall NYC data
 
-  boroughIdx = 0;
-  var dlist = d3.entries(data[boroughs[boroughIdx]]); //overall NYC data
-
-  var x = d3.scaleBand()
+  var x = d3.scaleBand() //x-axis is from 1950-2040, not from 0 to whatever
     .rangeRound([margin.left, width - margin.right])
     .domain(dlist.map(d => d.key));
 
@@ -29,7 +28,7 @@ var render = function() {
 
   var svg = d3.select("#svg");
 
-  svg.append("text")
+  svg.append("text") //title
       .attr("id", "title")
       .attr("x", (width / 2))
       .attr("y", (margin.top / 1.5))
@@ -74,7 +73,7 @@ var render = function() {
 }
 
 var transition = function() {
-  if (boroughIdx === 5) boroughIdx = 0
+  if (boroughIdx === 6) boroughIdx = 0 //reset back to NYC
   var dlist = d3.entries(data[boroughs[boroughIdx]]);
 
   var x = d3.scaleBand()
@@ -99,10 +98,9 @@ var transition = function() {
 
   svg.select("#yAxis")
     .transition()
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y)); //update y-axis to fit with new numbers
 
   ++boroughIdx;
 }
 
 renderButton.addEventListener("click", render);
-transitionButton.addEventListener("click", transition);

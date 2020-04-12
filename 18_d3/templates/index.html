@@ -14,7 +14,7 @@
   </body>
   <script src="http://d3js.org/d3.v5.min.js"></script>
   <script type="text/javascript">
-    var data = {{ data|tojson }}
+    var data = {{ data|tojson }} //passes Flask variable to JS file
   </script>
   <script src="static/transition.js"></script>
 </html>
