@@ -5,14 +5,19 @@
 
 var renderButton = document.getElementById("render");
 var transitionButton = document.getElementById("transition");
+const boroughs = ['nyc', 'bronx', 'brooklyn', 'manhattan', 'queens', 'staten'];
+const boroughNames = ["New York City", "The Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"];
+var boroughIdx = 0;
+
+var width = 1000;
+var height = 500;
+var margin = {top: 20, right: 0, bottom: 30, left: 70};
 
 var render = function() {
   renderButton.removeEventListener("click", render);
 
-  var dlist = d3.entries(data['nyc']);
-  var width = 1000;
-  var height = 500;
-  var margin = {top: 20, right: 0, bottom: 30, left: 70};
+  boroughIdx = 0;
+  var dlist = d3.entries(data[boroughs[boroughIdx]]); //overall NYC data
 
   var x = d3.scaleBand()
     .rangeRound([margin.left, width - margin.right])
@@ -25,6 +30,7 @@ var render = function() {
   var svg = d3.select("#svg");
 
   svg.append("text")
+      .attr("id", "title")
       .attr("x", (width / 2))
       .attr("y", (margin.top / 1.5))
       .attr("font-family", "sans-serif")
@@ -39,6 +45,7 @@ var render = function() {
     .selectAll("rect")
     .data(dlist)
     .join("rect")
+      .attr("class", "bar")
       .attr("x", d => x(d.key))
       .attr("y", d => y(d.value))
       .attr("height", d => y(0) - y(d.value))
@@ -52,6 +59,7 @@ var render = function() {
       .call(d3.axisBottom(x));
 
   svg.append("g")
+      .attr("id", "yAxis")
       .attr("transform", 'translate(' + margin.left + ',' + margin.top + ')')
       .call(d3.axisLeft(y))
     .append("text")
@@ -61,6 +69,40 @@ var render = function() {
       .attr("x", 0)
       .attr("y", 10)
       .text("Population");
+
+  boroughIdx++;
+}
+
+var transition = function() {
+  if (boroughIdx === 5) boroughIdx = 0
+  var dlist = d3.entries(data[boroughs[boroughIdx]]);
+
+  var x = d3.scaleBand()
+    .rangeRound([margin.left, width - margin.right])
+    .domain(dlist.map(d => d.key));
+
+  var y = d3.scaleLinear()
+    .range([height - margin.bottom, margin.top])
+    .domain([0, d3.max(dlist.map(d => d.value))]);
+
+  var svg = d3.select("#svg");
+  svg.transition()
+    .select("#title")
+      .text("Population Change of " + boroughNames[boroughIdx]);
+
+  svg.selectAll(".bar")
+    .data(dlist)
+    .transition()
+      .attr("x", d => x(d.key))
+      .attr("y", d => y(d.value))
+      .attr("height", d => y(0) - y(d.value));
+
+  svg.select("#yAxis")
+    .transition()
+      .call(d3.axisLeft(y));
+
+  ++boroughIdx;
 }
 
 renderButton.addEventListener("click", render);
+transitionButton.addEventListener("click", transition);
