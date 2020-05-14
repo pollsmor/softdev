@@ -37,7 +37,7 @@ var render = function() {
       .attr("fill", "black")
       .style("font-size", 16)
       .style("text-decoration", "underline")
-      .text("Population Change of New York City")
+      .text("Population Change of New York City");
 
   svg.append("g")
       .attr("fill", "steelblue")

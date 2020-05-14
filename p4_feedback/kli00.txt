@@ -1,0 +1,223 @@
+~~~ SoftDev 2020 Spring D3 Demo Feedback ~~~
+by
+Kevin Li
+
+
+team: TwoFortyNine
+-----------------------------------------------------------
+viewing time: 2020-05-14 11:45AM
+notes:
+(+) Parts of the website are very nicely broken down, easy to navigate
+(-) The number of deaths for the states gets harder and harder to see the darker the shade of red
+    Black text with white outline?
+(*) Great team name!
+===========================================================
+
+
+team: The SIMPsons
+-----------------------------------------------------------
+viewing time: 2020-05-14 11:52AM
+notes:
+(+) Very high effort intro imo
+(+) I like the example countries picked for the demo, shows how useful the website is for analysis of the pandemic
+(-) No offense, but the last 45 seconds feels like just a way to bring the video length up, not much insight gained from a montage
+(*) The economic impact feature just seems like a weird tack-on,
+    but not (-) since it's better than nothing
+===========================================================
+
+
+team: redesigned-telegram
+-----------------------------------------------------------
+viewing time: 2020-05-14 11:59AM
+notes:
+(+) Big props for taking the effort to coordinate a call while recording your demo
+(-) Don't get the point of the COVID parameters section
+(-) May just be personal preference, but I don't really like the white on black color scheme of the graph.
+(*) Short and sweet
+===========================================================
+
+
+team: Raduckal
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:05PM
+notes:
+(+) The ethnicity bar chart is so cool...
+(+) I like the color schemes picked, but darker colors = hard to see black text, white outline?
+(+) Interface is fun and easy to navigate through (sans one negative below)
+(-) Would prefer some audio adjustments so that everyone's volume sounds close to uniform.
+(-) I'd replace "fratio" and "mratio" with just "Female" and "Male".
+(-) I feel like the state search feature would be better as a dropdown - there's only 50 elements to pick from.
+(*) I think that the lists could be prettier using Bootstrap styling
+(*) All rights reserved?
+(*) Wow our female to male ratio
+===========================================================
+
+
+team: potato_monkeys
+-----------------------------------------------------------
+viewing time:
+notes:
+(+)
+(-)
+(*)
+===========================================================
+
+
+team: peterPickledPeppers
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:15PM
+notes:
+(+) Density of information (a lot in very little time shown)
+(-) Don't really enjoy the color schemes used
+(-) The alert and memes don't really contribute anything to the site
+(-) Wish there was more commentary to tell me what to look at on the screen
+(-) Only a single person talking
+(*) Tempurature --> Temperature
+(*) Protip: Shift + Command + 5 on a Mac for easy screen recording!
+(*) All hail the Empire! Or the First Order. idk.
+===========================================================
+
+
+team: Mykolyangelo
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:21PM
+notes:
+(+) Very high effort intro
+(+) Coordinating a call while recording the demo is always a +1
+(+) 3D, wow. That globe is a very neat and intuitive feature.
+(+) Good asynchronous search feature
+(-) Would like brief explainers for what each part of the website is for.
+    Just a title isn't enough imo.
+(-) You can rotate axis labels so that the Y-axis label follows the axis's direction
+(-) Not really sure about showing off actual code. Doesn't feel essential to the
+    demo.
+(*) Who disliked this video?
+(*) My left ear...just overall sound issues throughout
+(*) Have you guys registered with the U.S. copyright office?
+===========================================================
+
+
+team: Mos and Friends
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:30PM
+notes:
+(+) Being able to create, save, and share your own case study is rather neat.
+(+) A lot of data to pick and choose from
+(-) I'd prefer if you focused on one aspect/dataset of the graph rather than go through
+    each of them one by one with 1 second of interlude between them
+(-) More uniform volume in the demo would be nice
+(-) The forms look kind of outdated in design
+(*) The "mood" of the demo goes from 0 to 100
+(*) What's stopping me from creating a study with every single possible graph?
+(*) You're welcome
+===========================================================
+
+
+team: Marshmallow Fluff/Flush/idk
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:40PM
+notes:
+(+) I like the use of the heat maps
+(+) The virus simulation feature is really cool
+(-) The hovering feature takes a bit too long to activate
+(-) Color scheme (orange on paper yellow) isn't that good imo
+(-) Don't really see the point of making the user wait 3 seconds to see the number
+    tick up to 4261747 if it's always that number
+(*) 4261747 global cases up to date...as of?
+(*) U.S. copyright office reporting in
+===========================================================
+
+
+team: Kudoclasm
+-----------------------------------------------------------
+viewing time:
+notes:
+(+)
+(-)
+(*)
+===========================================================
+
+
+team: JEeBerS
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:50PM
+notes:
+(+) The spider chart looks really cool.
+(-) The countries bar chart is way too hard to see, would prefer a horizontal bar chart rather than vertical
+(-) The factor data graph is way too smushed, bad allocation of space
+
+(-) Overall interface of the website could do with some polishing
+(-) Single person presenting
+(*) Nah, North Korea is the happiness country on Earth.
+(*) Is the spider chart a jOjO rEfErEnCe?
+(*) ©
+===========================================================
+
+
+team: I am not ok with this
+-----------------------------------------------------------
+viewing time: 2020-05-14 12:57PM
+notes:
+(+) A lot of personality on this team
+(+) Very responsive and fluid site interface
+(-) Website feels more like a proof of concept than something I'd use to identify trends in data.
+(-) High learning curve to use site
+(*) I hate how iMovie stretches the video and cuts off the left and right by default.
+    Easy to tell when a video has been edited with it because of this.
+===========================================================
+
+
+team: Four Cs
+-----------------------------------------------------------
+viewing time: 2020-05-14 1:00PM
+notes:
+(+) Whoa how did you guys do that spiral graph?
+(+) Providing both a dropdown and search for countries is pretty neat.
+(+) I like the country comparison feature.
+(-) I would split the various graphs into separate pages/subpages. 5 graphs on one screen
+    that have little to do with one another is a lot to take in.
+(-) A bit too in depth into the code used imo
+(*) Hi Ethan!
+===========================================================
+
+
+team: Eclipse
+-----------------------------------------------------------
+viewing time: 2020-05-14 1:06PM
+notes:
+(+) *Very* high effort intro, funniest so far (and the coordination!)
+    This is the kind of video length padding that I'm 100% ok with
+(-) Poor use of space for the pie charts
+(-) Looking at Visual Studio for a minute is rather boring.
+(*) Either one of the laptop's fans are running at 10000rpm, or the mic has a
+    really horrible noise gate
+(*) Junhee out here with a professional mic
+===========================================================
+
+
+team: brimless yankee
+-----------------------------------------------------------
+viewing time: 2020-05-14 4:15PM
+notes:
+(+) Cool animation for the "scatter" plot
+(+) A lot of datasets to pick from
+(-) Start page looks kinda unpolished, hate having to read a paragraph
+(-) Interface of the site seems kind of confusing to navigate,
+    feels like separate sites rather than a single connected site
+(-) Last speaker is kinda quiet, would prefer that clip's volume to be boosted
+(*) Over 6 minutes
+(*) aCtiVaTe WiNdOwS
+===========================================================
+
+
+team: Bagel Pizza
+-----------------------------------------------------------
+viewing time: 2020-05-14 4:23PM
+notes:
+(+) Coordinated call demo! Nice globe at the end there.
+(+) That is a really cool title card.
+(+) Really like the highlight selection feature and how specific you can get
+(+) Easy comparing of CO2 emissions and global temperatures
+(-) Graph titles are off center (sorry can't find anything "bad"!)
+(*) Grade A blurring of whoever was in the background in the top right.
+===========================================================
